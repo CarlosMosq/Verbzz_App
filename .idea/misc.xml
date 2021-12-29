@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/button_shape.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/colored_image.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/flag_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/flag_rounded.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_baseline_auto_graph_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_light_orange.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_nicubunu_honey.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/information_buttons.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/search_bars.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_authentication_page.xml" value="0.2" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_conjugate.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_opening_page.xml" value="0.22" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_select_language_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/app_bar_select_language.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/content_select_language.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_conjugated__verb.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_english.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_flags_choose.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_gallery.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_lessons.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_shopping.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_statistics.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/verb_tenses_card.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
