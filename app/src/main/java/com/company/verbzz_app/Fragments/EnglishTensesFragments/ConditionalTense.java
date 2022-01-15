@@ -19,13 +19,13 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
-public class IndicativeTense extends Fragment {
+public class ConditionalTense extends Fragment {
 
     private final ArrayList<String> conjugations = new ArrayList<>();
     String verb;
     int index;
 
-    public IndicativeTense() {
+    public ConditionalTense() {
         // Required empty public constructor
     }
 
@@ -33,11 +33,11 @@ public class IndicativeTense extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
-        View view = inflater.inflate(R.layout.fragment_indicative_tense, container, false);
+        View view = inflater.inflate(R.layout.fragment_conditional_tense, container, false);
 
         inflateConjugations();
 
-        RecyclerView recyclerView = view.findViewById(R.id.conjugatedRecycler);
+        RecyclerView recyclerView = view.findViewById(R.id.conditionalRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         ConjugationAdapter adapter = new ConjugationAdapter(conjugations, view.getContext(), verb, index);
         recyclerView.setAdapter(adapter);
@@ -58,12 +58,7 @@ public class IndicativeTense extends Fragment {
     }
 
     public void inflateConjugations() {
-        conjugations.add("Present");
-        conjugations.add("Past");
-        conjugations.add("Future");
-        conjugations.add("Present Perfect");
-        conjugations.add("Past Perfect");
-        conjugations.add("Future Perfect");
+        conjugations.add("Present Conditional");
+        conjugations.add("Perfect Conditional");
     }
-
 }

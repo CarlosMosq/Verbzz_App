@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Verbzz_App">
+        android:theme="@style/Theme.Verbzz_App"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".Activities.Select_Language_Drawer"
             android:exported="false" />

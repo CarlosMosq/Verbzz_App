@@ -26,17 +26,25 @@
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_select_language_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/app_bar_select_language.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/card_conjugated_verb.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/card_flags_change_language.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/card_verb_tenses.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/content_select_language.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_blank_honey.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_conditional_tense.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_conjugated__verb.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_english.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_flags_choose.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_gallery.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_indicative_tense.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_lessons.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_other_tenses.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_shopping.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_statistics.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/verb_tenses_card.xml" value="0.5" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_subjunctive_tense.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/verb_tenses_card.xml" value="0.22" />
       </map>
     </option>
   </component>

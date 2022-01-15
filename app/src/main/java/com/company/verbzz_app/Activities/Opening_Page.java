@@ -23,8 +23,8 @@ public class Opening_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening_page);
 
-        honeycomb = findViewById(R.id.honeyComb);
-        title = findViewById(R.id.app_title);
+        honeycomb = findViewById(R.id.honeyCombBlank);
+        title = findViewById(R.id.app_title_blank);
 
         //Loads the animation created in anim folder into the honeycomb picture and title at the opening page;
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.transition);

@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contentDescription="@string/scroll"
-    tools:context=".Fragments.EnglishTensesFragments.IndicativeTense" >
+    tools:context=".Fragments.EnglishTensesFragments.SubjunctiveTense">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/conjugatedRecycler"
+        android:id="@+id/subjunctiveRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

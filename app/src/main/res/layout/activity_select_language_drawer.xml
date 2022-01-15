@@ -5,7 +5,6 @@
     android:id="@+id/linearLayoutDrawer"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@color/cold_orange"
     android:orientation="horizontal"
     tools:context=".Activities.Select_Language_Drawer">
 

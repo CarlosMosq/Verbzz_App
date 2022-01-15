@@ -33,11 +33,12 @@
     <string name="homeButtonDescr">Main page with honeycomb image that allows access to main features</string>
     <string name="statisticsPage">Statistics that allows you to verify your progress and compare it with friends</string>
     <string name="shoppingCart">Shopping Cart which allows purchases of more verbs for practice or services to schools</string>
-    <string name="menuDrawer">Bar icon that allows to change the language you are practicing</string>
+    <string name="menuDrawer">Flag icon that allows to change the language you are practicing</string>
     <string name="dropDownList">Dropdown list with number of verbs to practice</string>
     <string name="dropDownLanguages">Dropdown list with language options to practice</string>
     <string name="search">Image of a magnifying glass, which brings back the conjugated verbs</string>
     <string name="logOut">Image of an arrow indicating log out</string>
+    <string name="scroll">Scrollable screen</string>
 
 
     //Array for dropdown list of verbs to use
@@ -64,7 +65,14 @@
     //english Verb tenses
 
     <string name="indicative">Indicative</string>
-
+    
+    <string name="present">Present</string>
+    
+    <string name="i">I</string>
+    <string name="you">You</string>
+    <string name="heShe">He/she/it</string>
+    <string name="we">We</string>
+    <string name="they">They</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

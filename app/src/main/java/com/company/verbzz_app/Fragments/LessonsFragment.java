@@ -16,11 +16,9 @@ import androidx.fragment.app.Fragment;
 
 import com.company.verbzz_app.Activities.Authentication_Page;
 import com.company.verbzz_app.Activities.Conjugate_Activity;
+import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class LessonsFragment extends Fragment {
 
@@ -28,13 +26,13 @@ public class LessonsFragment extends Fragment {
     Spinner spinner;
     String numberOfVerbs = "10";
     Button languageMenu;
-    String currentLanguage;
     Button conjugations;
     Button gradedPractice;
     Button memorization;
     Button logOut;
 
     DrawerLayout drawerLayout;
+    DatabaseAccess databaseAccess = new DatabaseAccess();
 
     public LessonsFragment() {
         // Required empty public constructor
@@ -54,17 +52,15 @@ public class LessonsFragment extends Fragment {
         drawerLayout = view.findViewById(R.id.drawerLayout);
         logOut = view.findViewById(R.id.logOut);
 
-        //Sets current language and the language flag at the top of the fragment by accessing database;
-        checkCurrentLanguage();
+        //Sets the language flag at the top of the fragment by accessing database;
+        databaseAccess.checkCurrentLanguage(language -> databaseAccess.setBackgroundFlag(language, languageMenu));
 
+        //Opens the drawer that allows language change;
         languageMenu.setOnClickListener(v -> openDrawer(drawerLayout));
 
-        //Opens the page that allow for conjugation of all verbs;
+        //Opens the page that allows for conjugation of all verbs;
         conjugations.setOnClickListener(v -> {
-            Conjugate_Activity conjugate = (Conjugate_Activity) getActivity();
             Intent i = new Intent(getActivity(), Conjugate_Activity.class);
-            assert conjugate != null;
-            conjugate.takeData(currentLanguage);
             startActivity(i);
         });
 
@@ -80,6 +76,7 @@ public class LessonsFragment extends Fragment {
 
         });
 
+        //Log out button - design it better;
         logOut.setOnClickListener(v -> logOut());
 
         //Sets the dropdown menu that determines the number of verbs for practice;
@@ -92,6 +89,7 @@ public class LessonsFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //onItemSelected might be asynchronous, check if you need this variable changed or outside this method;
                 numberOfVerbs = adapterView.getItemAtPosition(i).toString();
             }
             @Override
@@ -101,37 +99,6 @@ public class LessonsFragment extends Fragment {
 
         return view;
         //end of onCreateView
-    }
-
-    public void checkCurrentLanguage() {
-        FirebaseDatabase databaseLanguage = FirebaseDatabase.getInstance();
-        DatabaseReference languageReference = databaseLanguage.getReference();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-        assert user != null;
-        final String userUID = user.getUid();
-        languageReference
-                .child("Languages")
-                .child("Current Language")
-                .child(userUID)
-                .child("Current Language")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if(task.isSuccessful()) {
-                        currentLanguage = (String) task.getResult().getValue();
-                        setBackgroundFlag(currentLanguage, languageMenu);
-                    }
-                });
-    }
-
-    public void setBackgroundFlag(String language, Button flag) {
-        if(language == null) flag.setBackgroundResource(R.drawable.non_chosen_language);
-        else if(language.equals("English")) {
-            flag.setBackgroundResource(R.drawable.english_language);
-        }
-        else if(language.equals("French")) {
-            flag.setBackgroundResource(R.drawable.french_language);
-        }
     }
 
     public void openDrawer(DrawerLayout drawerLayout) {

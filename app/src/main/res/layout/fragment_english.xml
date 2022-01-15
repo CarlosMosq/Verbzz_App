@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/verb_tenses_card" />
+            tools:listitem="@layout/card_verb_tenses" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
