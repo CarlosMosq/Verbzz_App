@@ -11,12 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.verbzz_app.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login_Activity extends AppCompatActivity {
 
-    TextView emailField;
-    TextView passwordField;
+    TextInputEditText emailField;
+    TextInputEditText passwordField;
     Button logIn;
     TextView noAccount;
     TextView forgotPassword;
@@ -37,6 +38,7 @@ public class Login_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.INVISIBLE);
 
+        //Login method which collects e-mail and password from fields and passes to firebase method
         logIn.setOnClickListener(v -> {
             logIn.setClickable(false);
             String email = emailField.getText().toString();
@@ -44,17 +46,20 @@ public class Login_Activity extends AppCompatActivity {
             signInWithFirebase(email, password);
         });
 
+        //Directs user to different activity if he doesn't have an account and clicked on login by mistake
         noAccount.setOnClickListener(v -> {
             Intent i = new Intent(Login_Activity.this, Sign_Up_Activity.class);
             startActivity(i);
         });
 
+        //Directs user to activity for resetting their password
         forgotPassword.setOnClickListener(v -> {
             Intent i = new Intent(Login_Activity.this, Forgot_Password.class);
             startActivity(i);
         });
     }
 
+    //Method that allows sign in with firebase, based on e-mail and password used previously
     public void signInWithFirebase(String email, String password) {
         progressBar.setVisibility(View.VISIBLE);
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
@@ -69,6 +74,7 @@ public class Login_Activity extends AppCompatActivity {
         });
     }
 
+    //directs user to main activity after login is finished
     public void goToMain() {
         Intent i = new Intent(Login_Activity.this, MainActivity.class);
         startActivity(i);

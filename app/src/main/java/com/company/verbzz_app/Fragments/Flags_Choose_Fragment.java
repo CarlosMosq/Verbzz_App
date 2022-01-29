@@ -10,16 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.company.verbzz_app.Adapters.Choose_New_Language_Adapter;
+import com.company.verbzz_app.Adapters.Language_Drawer_Adapter;
 import com.company.verbzz_app.R;
 
 import java.util.ArrayList;
 
 public class Flags_Choose_Fragment extends Fragment {
 
-    private RecyclerView recyclerView;
-    private ArrayList<String> languages;
-    private Choose_New_Language_Adapter adapter;
+    private final ArrayList<String> languages = new ArrayList<>();
 
     public Flags_Choose_Fragment() {
         // Required empty public constructor
@@ -31,9 +29,9 @@ public class Flags_Choose_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_flags_choose, container, false);
 
         currentLanguages(languages);
-        recyclerView = view.findViewById(R.id.languagesFlags);
+        RecyclerView recyclerView = view.findViewById(R.id.languagesFlags);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapter = new Choose_New_Language_Adapter(languages, view.getContext());
+        Language_Drawer_Adapter adapter = new Language_Drawer_Adapter(languages, view.getContext());
         recyclerView.setAdapter(adapter);
 
         return view;

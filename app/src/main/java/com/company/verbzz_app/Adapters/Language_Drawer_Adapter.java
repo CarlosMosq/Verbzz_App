@@ -10,20 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class Choose_New_Language_Adapter extends RecyclerView.Adapter<Choose_New_Language_Adapter.FlagsViewHolder> {
+public class Language_Drawer_Adapter extends RecyclerView.Adapter<Language_Drawer_Adapter.FlagsViewHolder> {
 
     ArrayList<String> languages;
     Context context;
 
-    public Choose_New_Language_Adapter(ArrayList<String> languages, Context context) {
+    public Language_Drawer_Adapter(ArrayList<String> languages, Context context) {
         this.languages = languages;
         this.context = context;
     }
@@ -32,7 +29,6 @@ public class Choose_New_Language_Adapter extends RecyclerView.Adapter<Choose_New
     @Override
     public FlagsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_flags_change_language, parent, false);
-
         return new FlagsViewHolder(view);
     }
 
@@ -49,20 +45,8 @@ public class Choose_New_Language_Adapter extends RecyclerView.Adapter<Choose_New
         }
 
         holder.cardView.setOnClickListener(v -> {
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference reference = database.getReference();
-            FirebaseAuth auth = FirebaseAuth.getInstance();
-            FirebaseUser user = auth.getCurrentUser();
-            assert user != null;
-            String userUID = user.getUid();
-            reference
-                    .child("Languages")
-                    .child("Current Language")
-                    .child(userUID)
-                    .child("Current Language")
-                    .setValue(languages.get(position));
-
-            //check how to close the drawer from here and update language
+            DatabaseAccess databaseAccess = new DatabaseAccess();
+            databaseAccess.saveCurrentLanguageToDatabase(languages.get(position));
         });
 
     }

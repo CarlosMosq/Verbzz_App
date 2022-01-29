@@ -11,11 +11,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.verbzz_app.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Forgot_Password extends AppCompatActivity {
 
-    TextView emailField;
+    TextInputEditText emailField;
     Button sendLink;
     TextView backLink;
     ProgressBar progressBar;
@@ -33,6 +34,7 @@ public class Forgot_Password extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar3);
         progressBar.setVisibility(View.INVISIBLE);
 
+        //accesses method on firebase that sends reset link to user
         sendLink.setOnClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
             String email = emailField.getText().toString();
@@ -50,11 +52,13 @@ public class Forgot_Password extends AppCompatActivity {
 
         });
 
+        //if backLink TextView is pressed, goToLogin method is used
         backLink.setOnClickListener(v -> goToLogin());
 
 
     }
 
+    //send user to log in page
     public void goToLogin() {
         Intent i = new Intent(Forgot_Password.this, Login_Activity.class);
         startActivity(i);

@@ -18,6 +18,10 @@ import com.company.verbzz_app.Fragments.EnglishTensesFragments.ConditionalTense;
 import com.company.verbzz_app.Fragments.EnglishTensesFragments.IndicativeTense;
 import com.company.verbzz_app.Fragments.EnglishTensesFragments.OtherTenses;
 import com.company.verbzz_app.Fragments.EnglishTensesFragments.SubjunctiveTense;
+import com.company.verbzz_app.Fragments.FrenchTensesFragments.AutresTenses;
+import com.company.verbzz_app.Fragments.FrenchTensesFragments.ConditionnelTense;
+import com.company.verbzz_app.Fragments.FrenchTensesFragments.IndicatifTense;
+import com.company.verbzz_app.Fragments.FrenchTensesFragments.SubjonctifTense;
 import com.company.verbzz_app.R;
 
 import java.util.ArrayList;
@@ -30,6 +34,10 @@ public class TensesAdapter extends RecyclerView.Adapter<TensesAdapter.TensesView
     private final ConditionalTense conditionalTense = new ConditionalTense();
     private final SubjunctiveTense subjunctiveTense = new SubjunctiveTense();
     private final OtherTenses otherTenses = new OtherTenses();
+    private final IndicatifTense indicatifTense = new IndicatifTense();
+    private final ConditionnelTense conditionnelTense = new ConditionnelTense();
+    private final SubjonctifTense subjonctifTense = new SubjonctifTense();
+    private final AutresTenses autresTenses = new AutresTenses();
 
     public TensesAdapter(ArrayList<String> tenses, Context context) {
         this.tenses = tenses;
@@ -40,7 +48,6 @@ public class TensesAdapter extends RecyclerView.Adapter<TensesAdapter.TensesView
     @Override
     public TensesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_verb_tenses, parent, false);
-
         return new TensesViewHolder(view);
     }
 
@@ -67,6 +74,7 @@ public class TensesAdapter extends RecyclerView.Adapter<TensesAdapter.TensesView
         }
     }
 
+    //used by English fragment and French fragment to set correct fragments to display conjugated data
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = ((Conjugate_Activity)context).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -75,6 +83,7 @@ public class TensesAdapter extends RecyclerView.Adapter<TensesAdapter.TensesView
         fragmentTransaction.commit();
     }
 
+    //returns specific fragment to be replaced in the conjugated activity
     public Fragment returnFragment(String tense) {
         switch (tense) {
             case "Indicative":
@@ -83,8 +92,19 @@ public class TensesAdapter extends RecyclerView.Adapter<TensesAdapter.TensesView
                 return conditionalTense;
             case "Subjunctive":
                 return subjunctiveTense;
-            default:
+            case "Imperative":
+            case "Participle":
+            case "Gerund":
+            case "Infinitive":
                 return otherTenses;
+            case "Indicatif":
+                return indicatifTense;
+            case "Conditionnel":
+                return conditionnelTense;
+            case "Subjonctif":
+                return subjonctifTense;
+            default:
+                return autresTenses;
         }
     }
 

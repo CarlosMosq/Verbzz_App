@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Verbzz_App" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Verbzz_App" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
+        <!-- main color of buttons -->
         <item name="colorPrimary">#FFB300</item>
         <item name="colorPrimaryVariant">#FF7800</item>
         <item name="colorOnPrimary">#F7F7F7</item>

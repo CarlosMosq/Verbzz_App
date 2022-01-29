@@ -1,90 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayoutConjugate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="2dp"
     tools:context=".Activities.Conjugate_Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutConjugate"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/icy_white"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/languageChange"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/non_chosen_language"
-            android:contentDescription="@string/menuDrawer"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutConjugate"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/icy_white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/verbInput"
-            android:layout_width="230dp"
-            android:layout_height="50dp"
-            android:background="@drawable/search_bars"
-            android:gravity="center"
-            android:hint="@string/enterVerb"
-            android:importantForAutofill="no"
-            android:inputType="text|textAutoComplete"
-            android:paddingStart="2dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="2dp"
-            android:paddingBottom="2dp"
-            android:textColorHint="@color/text_gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/conjugateButton"
-            app:layout_constraintStart_toEndOf="@+id/languageChange"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/languageChange"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/non_chosen_language"
+                android:contentDescription="@string/menuDrawer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
-        <Button
-            android:id="@+id/conjugateButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/ic_baseline_search_24"
-            android:contentDescription="@string/search"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:hint="@string/enterVerb"
+                android:textColorHint="@color/text_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/conjugateButton"
+                app:layout_constraintStart_toEndOf="@+id/languageChange"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/verbInput"
+                    android:layout_width="230dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:importantForAutofill="no"
+                    android:inputType="text|textAutoComplete"
+                    android:paddingStart="2dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="2dp"
+                    android:paddingBottom="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/conjugateButton"
+                    app:layout_constraintStart_toEndOf="@+id/languageChange"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/conjugateButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_baseline_search_24"
+                android:contentDescription="@string/search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutConjugate"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/text_gray"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutConjugate">
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/conjugatedView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutConjugate">
 
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayoutConjugate"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationConjugate"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="71dp"
-        android:background="@color/text_gray"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="221dp"
+        android:layout_gravity="start">
 
-    </LinearLayout>
+        <include
+            layout="@layout/activity_select_language_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="71dp" />
 
-    <FrameLayout
-        android:id="@+id/conjugatedView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>
 
-    </FrameLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>

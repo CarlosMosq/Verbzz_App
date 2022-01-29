@@ -25,6 +25,7 @@ public class Authentication_Page extends AppCompatActivity {
         signUp = findViewById(R.id.signUpButton);
         login = findViewById(R.id.loginButton);
 
+        //listeners responsible for sending user to either login or sign up page
         signUp.setOnClickListener(v -> {
             Intent i = new Intent(Authentication_Page.this, Sign_Up_Activity.class);
             startActivity(i);
@@ -37,6 +38,7 @@ public class Authentication_Page extends AppCompatActivity {
 
     }
 
+    //if user is already logged in, go straight to main page
     @Override
     protected void onStart() {
         super.onStart();
@@ -44,6 +46,7 @@ public class Authentication_Page extends AppCompatActivity {
         if(user != null) goToMain();
     }
 
+    //Intent directs user to main page
     public void goToMain() {
         Intent i = new Intent(Authentication_Page.this, MainActivity.class);
         startActivity(i);

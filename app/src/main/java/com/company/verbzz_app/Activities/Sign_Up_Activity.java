@@ -5,28 +5,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Sign_Up_Activity extends AppCompatActivity {
 
-    TextView emailField;
-    TextView passwordField;
+    String[] languages = {"English", "French"};
+    TextInputEditText emailField, passwordField;
     Button createAccount;
     ProgressBar progressBar;
-    Spinner languageList;
-    ArrayAdapter<CharSequence> languageAdapter;
+    AutoCompleteTextView languageList;
+    ArrayAdapter<String> languageAdapter;
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
     String currentLanguage = "None";
@@ -40,7 +38,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
         passwordField = findViewById(R.id.passwordInput);
         createAccount = findViewById(R.id.buttonCreate);
         progressBar = findViewById(R.id.progressBar);
-        languageList = findViewById(R.id.languageList);
+        languageList = findViewById(R.id.autoCompleteLanguage);
 
         progressBar.setVisibility(View.INVISIBLE);
 
@@ -52,12 +50,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
         });
 
         //creates and adapts dropdown list of languages to choose from
-        languageAdapter = ArrayAdapter.createFromResource(this
-                , R.array.languages
-                , android.R.layout.simple_spinner_item);
-        languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        languageAdapter = new ArrayAdapter<>(this, R.layout.card_dropdown_list, languages);
         languageList.setAdapter(languageAdapter);
-
         languageList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -66,10 +60,10 @@ public class Sign_Up_Activity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                currentLanguage = adapterView.getItemAtPosition(0).toString();
             }
         });
-
+        languageList.setAdapter(languageAdapter);
     }
 
     //Code that enables signUp with e-mail and password through firebase;
@@ -90,16 +84,9 @@ public class Sign_Up_Activity extends AppCompatActivity {
         });
     }
 
-    // Sets the first language to be used and saves it to Database
+    // Saves the first language to be used into the Database
     public void saveToDatabase(String language) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference();
-        FirebaseUser user = auth.getCurrentUser();
-
-        if (user != null) {
-            String userUID = user.getUid();
-            reference.child("Languages").child("Current Language").child(userUID).child("Current Language").setValue(language);
-            reference.child("Languages").child("Languages Chosen").child(userUID).child(language).setValue(language);
-        }
+        DatabaseAccess databaseAccess = new DatabaseAccess();
+        databaseAccess.saveCurrentLanguageToDatabase(language);
     }
 }

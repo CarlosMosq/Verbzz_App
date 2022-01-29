@@ -3,7 +3,7 @@
     <string name="title">Verbzz</string>
     <string name="getStarted">Get Started</string>
     <string name="log_in">Log In</string>
-    <string name="style_phrase">We can better coordinate saving the bees if we speak each other\'s languages :)</string>
+    <string name="style_phrase">Start small, work hard.</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -25,13 +25,32 @@
     <string name="gradedPractice">Graded Practice</string>
     <string name="memorization">Memorization</string>
     <string name="kth">Most Common Verbs</string>
-    <string name="chooseLanguage">Please Choose a Language to Start:</string>
+    <string name="chooseLanguage">Choose Language:</string>
     <string name="enterVerb">Enter Verb</string>
+    <string name="customize">Customize Your Practice</string>
+    <string name="off"><font color="#373D3F">Off MIN</font></string>
+    <string name="fivemin">5 <font color="#373D3F">MIN</font></string>
+    <string name="start">Start</string>
+    <string name="choose">Choose:</string>
+    <string name="selectTense">Select Tense:</string>
+    <string name="selectCount">Select Number:</string>
+    <string name="practice">Practice</string>
+    <string name="conjugationPlaceholder">they work</string>
+    <string name="answer">answer</string>
+    <string name="checkAnswer">Check answer</string>
+    <string name="status">The correct answer is: </string>
+    <string name="correct">Correct!</string>
+    <string name="timePlaceholder">5:00</string>
+    <string name="percentagePlaceholder">100%</string>
+    <string name="fractionPlaceholder">0/1</string>
 
     //Descriptions for accessible buttons
+    <string name="bee">Bee Image</string>
+    <string name="animatedBee">animated image of a bee</string>
     <string name="description">animated image of a honey comb</string>
+    <string name="wave">colored curves</string>
     <string name="homeButtonDescr">Main page with honeycomb image that allows access to main features</string>
-    <string name="statisticsPage">Statistics that allows you to verify your progress and compare it with friends</string>
+    <string name="statisticsPage">Statistics that allows you to verify your progress</string>
     <string name="shoppingCart">Shopping Cart which allows purchases of more verbs for practice or services to schools</string>
     <string name="menuDrawer">Flag icon that allows to change the language you are practicing</string>
     <string name="dropDownList">Dropdown list with number of verbs to practice</string>
@@ -39,40 +58,37 @@
     <string name="search">Image of a magnifying glass, which brings back the conjugated verbs</string>
     <string name="logOut">Image of an arrow indicating log out</string>
     <string name="scroll">Scrollable screen</string>
-
-
-    //Array for dropdown list of verbs to use
-    <string name="ten">10</string>
-    <string-array name="numberOfVerbs">
-
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-
-    </string-array>
-
-    //Array for dropdown list of languages to choose from
-    <string-array name="languages">
-
-        <item>English</item>
-        <item>French</item>
-
-    </string-array>
+    <string name="timerIcon">Timer icon</string>
+    <string name="percentage">percentage symbol</string>
 
     //english Verb tenses
 
     <string name="indicative">Indicative</string>
-    
+    <string name="infinitive">Infinitive</string>
+    <string name="gerund">Gerund</string>
+    <string name="participle">Participle</string>
+    <string name="imperative">Imperative</string>
+
     <string name="present">Present</string>
-    
+
     <string name="i">I</string>
     <string name="you">You</string>
     <string name="heShe">He/she/it</string>
     <string name="we">We</string>
     <string name="they">They</string>
+
+    //french Verb tenses
+
+    <string name="infinitif">Infinitif</string>
+    <string name="gerondif">Gérondif</string>
+    <string name="participe">Participe</string>
+    <string name="imperatif">Impératif</string>
+    <string name="presentFr">Présent</string>
+    <string name="passe">Passé</string>
+
+    <string name="tu">Tu</string>
+    <string name="nous">Nous</string>
+    <string name="vous">Vous</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

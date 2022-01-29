@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.company.verbzz_app.Classes.DatabaseAccess;
+import com.company.verbzz_app.Classes.EnglishModelClasses.ModelClassEnglish;
 import com.company.verbzz_app.Classes.VerbEventBus;
 import com.company.verbzz_app.R;
 
@@ -14,11 +17,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
-
 public class OtherTenses extends Fragment {
 
-    private final ArrayList<String> conjugations = new ArrayList<>();
+    TextView infinitiveText, gerundText, participleText, imperativeTextYou, imperativeTextWe, imperativeTextYouPlural;
     String verb;
     int index;
 
@@ -33,14 +34,23 @@ public class OtherTenses extends Fragment {
         EventBus.getDefault().register(this);
         View view = inflater.inflate(R.layout.fragment_other_tenses, container, false);
 
-        inflateConjugations();
+        infinitiveText = view.findViewById(R.id.infinitiveView);
+        gerundText = view.findViewById(R.id.gerundView);
+        participleText = view.findViewById(R.id.participleView);
+        imperativeTextYou = view.findViewById(R.id.imperativeViewYou);
+        imperativeTextWe = view.findViewById(R.id.imperativeViewWe);
+        imperativeTextYouPlural = view.findViewById(R.id.imperativeViewYouPlural);
 
-
-        //can't use the same adapter, create a new one
-//        RecyclerView recyclerView = view.findViewById(R.id.otherRecycler);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-//        ConjugationAdapter adapter = new ConjugationAdapter(conjugations, view.getContext(), verb, index);
-//        recyclerView.setAdapter(adapter);
+        DatabaseAccess databaseAccess = new DatabaseAccess();
+        databaseAccess.callRetrofitEnglish(data -> {
+            ModelClassEnglish verbData = data.get(index);
+            infinitiveText.setText(verbData.getInfinitive().get(0));
+            gerundText.setText(verbData.getGerund().get(0));
+            participleText.setText(verbData.getParticiple().get(0));
+            imperativeTextYou.setText(verbData.getImperative().get(0));
+            imperativeTextWe.setText(String.format("%s%s", "Let's", verbData.getImperative().get(1)));
+            imperativeTextYouPlural.setText(verbData.getImperative().get(2));
+        });
 
         return view;
     }
@@ -57,8 +67,4 @@ public class OtherTenses extends Fragment {
         index = verbEventBus.getIndex();
     }
 
-    public void inflateConjugations() {
-        conjugations.add("Present Subjunctive");
-        conjugations.add("Perfect Subjunctive");
-    }
 }

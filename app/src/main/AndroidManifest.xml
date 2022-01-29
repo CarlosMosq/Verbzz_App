@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Verbzz_App"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activities.LanguagePractice"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.GradedPractice"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Select_Language_Drawer"
             android:exported="false" />
         <activity
