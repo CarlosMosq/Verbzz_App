@@ -1,108 +1,112 @@
 <resources>
     <string name="app_name">Verbzz_App</string>
     <string name="title">Verbzz</string>
+
+    <!-- login and authentication -->
     <string name="getStarted">Get Started</string>
     <string name="log_in">Log In</string>
+    <string name="log_out">Log Out</string>
     <string name="style_phrase">Start small, work hard.</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
     <string name="email">Enter Your E-mail</string>
     <string name="password">Enter Your Password</string>
-    <string name="or">Or</string>
     <string name="account">Create Account</string>
-    <string name="forgotAccount">Forgot Your Password?</string>
+    <string name="forgotAccount">Forgot Your Password? <font color="#FF5722">Reset</font></string>
+    <string name="forgotAccountTitle">Forgot Your Password?</string>
     <string name="noAccount">Don\'t have an Account? <font color="#FF5722">Sign Up</font></string>
     <string name="continueLink">Continue</string>
     <string name="back">Back</string>
+
+    <!-- random descriptors -->
+
     <string name="conjugation">Verb Conjugations</string>
-    <string name="gradedPractice">Graded Practice</string>
-    <string name="memorization">Memorization</string>
-    <string name="kth">Most Common Verbs</string>
+    <string name="conjugationPractice">Conjugation Practice</string>
+    <string name="translation">Translation Practice</string>
     <string name="chooseLanguage">Choose Language:</string>
     <string name="enterVerb">Enter Verb</string>
     <string name="customize">Customize Your Practice</string>
-    <string name="off"><font color="#373D3F">Off MIN</font></string>
-    <string name="fivemin">5 <font color="#373D3F">MIN</font></string>
+    <string name="off" translatable="false"><font color="#373D3F">Off MIN</font></string>
+    <string name="fivemin" translatable="false">5 <font color="#373D3F">MIN</font></string>
     <string name="start">Start</string>
-    <string name="choose">Choose:</string>
     <string name="selectTense">Select Tense:</string>
     <string name="selectCount">Select Number:</string>
     <string name="practice">Practice</string>
     <string name="conjugationPlaceholder">they work</string>
+    <string name="translate">Translate</string>
     <string name="answer">answer</string>
     <string name="checkAnswer">Check answer</string>
     <string name="status">The correct answer is: </string>
     <string name="correct">Correct!</string>
-    <string name="timePlaceholder">5:00</string>
-    <string name="percentagePlaceholder">100%</string>
-    <string name="fractionPlaceholder">0/1</string>
+    <string name="timePlaceholder" translatable="false">5:00</string>
+    <string name="percentagePlaceholder" translatable="false">100%</string>
+    <string name="fractionPlaceholder" translatable="false">0/1</string>
+    <string name="statistics">Statistics</string>
+    <string name="activity">Activity</string>
+    <string name="score">Score</string>
+    <string name="date">Date</string>
+    <string name="switchLanguage">Switch</string>
+    <string name="Purchases">Shopping</string>
+    <string name="disable">Disable Ads</string>
+    <string name="pricePlaceholder" translatable="false">R$ 0,99</string>
 
-    //Descriptions for accessible buttons
+    <!-- Toast messages-->
+    <string name="languageNotSet">Current language not set</string>
+    <string name="verbNotFound">Verb not found, please verify orthography or try a different one</string>
+    <string name="forgotLinkSent">Link Successfully Sent. Please check your Inbox</string>
+    <string name="errorLinkSent">Error, Please Try Again</string>
+    <string name="accessGranted">Access Granted</string>
+    <string name="verifyEmail">Please verify e-mail before proceeding</string>
+    <string name="verifySent">Please verify your account. E-mail verification sent successfully</string>
+    <string name="incorrect">E-mail or Password Incorrect</string>
+    <string name="accountCreated">Account Created Successfully</string>
+    <string name="tryAgain">Please try again</string>
+
+    <!-- Descriptions for accessible buttons -->
     <string name="bee">Bee Image</string>
     <string name="animatedBee">animated image of a bee</string>
     <string name="description">animated image of a honey comb</string>
     <string name="wave">colored curves</string>
     <string name="homeButtonDescr">Main page with honeycomb image that allows access to main features</string>
     <string name="statisticsPage">Statistics that allows you to verify your progress</string>
-    <string name="shoppingCart">Shopping Cart which allows purchases of more verbs for practice or services to schools</string>
+    <string name="shoppingCart">Shopping Cart which directs user to purchases page</string>
+    <string name="shoppingSymbol">animated image of a shopping cart</string>
     <string name="menuDrawer">Flag icon that allows to change the language you are practicing</string>
-    <string name="dropDownList">Dropdown list with number of verbs to practice</string>
-    <string name="dropDownLanguages">Dropdown list with language options to practice</string>
-    <string name="search">Image of a magnifying glass, which brings back the conjugated verbs</string>
-    <string name="logOut">Image of an arrow indicating log out</string>
+    <string name="search">magnifying glass, to search verb results</string>
+    <string name="bttnLogOut">Image of an arrow indicating log out</string>
     <string name="scroll">Scrollable screen</string>
     <string name="timerIcon">Timer icon</string>
-    <string name="percentage">percentage symbol</string>
+    <string name="percentage" translatable="false">percentage symbol</string>
 
-    //english Verb tenses
+    <!-- English Verb tenses and pronouns -->
 
-    <string name="indicative">Indicative</string>
-    <string name="infinitive">Infinitive</string>
-    <string name="gerund">Gerund</string>
-    <string name="participle">Participle</string>
-    <string name="imperative">Imperative</string>
+    <string name="indicative" translatable="false">Indicative</string>
+    <string name="infinitive" translatable="false">Infinitive</string>
+    <string name="gerund" translatable="false">Gerund</string>
+    <string name="participle" translatable="false">Participle</string>
+    <string name="imperative" translatable="false">Imperative</string>
 
-    <string name="present">Present</string>
+    <string name="present" translatable="false">Present</string>
 
-    <string name="i">I</string>
-    <string name="you">You</string>
-    <string name="heShe">He/she/it</string>
-    <string name="we">We</string>
-    <string name="they">They</string>
+    <string name="i" translatable="false">I</string>
+    <string name="you" translatable="false">You</string>
+    <string name="heShe" translatable="false">He/she/it</string>
+    <string name="we" translatable="false">We</string>
+    <string name="they" translatable="false">They</string>
 
-    //french Verb tenses
+    <!-- french Verb tenses and pronouns -->
 
-    <string name="infinitif">Infinitif</string>
-    <string name="gerondif">Gérondif</string>
-    <string name="participe">Participe</string>
-    <string name="imperatif">Impératif</string>
-    <string name="presentFr">Présent</string>
-    <string name="passe">Passé</string>
+    <string name="infinitif" translatable="false">Infinitif</string>
+    <string name="participe" translatable="false">Participe</string>
+    <string name="imperatif" translatable="false">Impératif</string>
+    <string name="presentFr" translatable="false">Présent</string>
+    <string name="passe" translatable="false">Passé</string>
 
-    <string name="tu">Tu</string>
-    <string name="nous">Nous</string>
-    <string name="vous">Vous</string>
+    <string name="tu" translatable="false">Tu</string>
+    <string name="nous" translatable="false">Nous</string>
+    <string name="vous" translatable="false">Vous</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_select_language">selectLanguage</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
+    <!-- Ad ids -->
+    <string name="test_Interstitial_Ad_ID" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="real_Interstitial_Ad_ID" translatable="false">ca-app-pub-3257840631399246/8115708870</string>
+    <string name="translationPlaceholder">to love</string>
 
 </resources>

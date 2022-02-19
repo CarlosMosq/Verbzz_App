@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public class DatabaseAccess {
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final FirebaseUser user = auth.getCurrentUser();
 
-    //fix the french array indexes due to $ on the original json file;
+    /* indexes created to match the first letter of the verb sought for with the database
+    so the function looks for a range and not the entire database. 26 indexes represent a-z */
     private final int[] frenchStart = {0, 898, 1477, 2561, 4076, 5288, 5668, 5991, 6146, 6433, 6507, 6520, 6702, 7155, 7271, 7395, 8182, 8207, 9528, 10184, 10650, 10672, 10865, 10866, 10868, 10875};
     private final int[] frenchEnd = {897, 1476, 2560, 4075, 5287, 5667, 5990, 6145, 6432, 6506, 6519, 6701, 7154, 7270, 7394, 8181, 8206, 9527, 10183, 10649, 10671, 10864, 10865, 10867, 10874, 10895};
     private final int[] englishStart = {0, 45, 124, 212, 271, 313, 358, 389, 426, 461, 474, 483, 515, 551, 561, 577, 655, 660, 726, 882, 938, 953, 963, 1003, 1004, 1010};
@@ -51,11 +53,10 @@ public class DatabaseAccess {
                 .child("Current Language")
                 .child(userUID)
                 .child("Current Language")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String currentLanguage = snapshot.getValue(String.class);
-                        onLanguageLoaded.onLanguageLoaded(currentLanguage);
+                        onLanguageLoaded.onLanguageLoaded(snapshot.getValue(String.class));
                     }
 
                     @Override
@@ -70,7 +71,7 @@ public class DatabaseAccess {
         else if(language.equals("English")) {
             flag.setBackgroundResource(R.drawable.english_language);
         }
-        else if(language.equals("French")) {
+        else if(language.equals("Français")) {
             flag.setBackgroundResource(R.drawable.french_language);
         }
     }
@@ -81,17 +82,24 @@ public class DatabaseAccess {
         for (int i = englishStart[index]; i <= englishEnd[index]; i++) {
             if(data.get(i).getInfinitive().get(0).equals(verb)) {
                 result = i;
+                break;
             }
         }
         return result;
     }
 
+    /*some french verbs start with accent letters, such as être or établir
+    It only happens with "ôter" and verbs with "e", so if index points to higher than
+    a-z letters, it's accented, so return "e" index (4) or "o" (14)*/
     public int returnFrenchVerbPosition(List<ModelClassFrench> data, String verb) {
         int index = (int)(verb.toLowerCase().charAt(0)) - 97;
+        if(verb.equals("ôter")) index = 14;
+        else if(index > 25) index = 4;
         int result = -1;
         for (int i = frenchStart[index]; i <= frenchEnd[index]; i++) {
             if(data.get(i).getInfinitif().getPrSent().get(0).equals(verb)) {
                 result = i;
+                break;
             }
         }
         return result;
@@ -109,8 +117,7 @@ public class DatabaseAccess {
         call.enqueue(new Callback<List<ModelClassFrench>>() {
             @Override
             public void onResponse(@NonNull Call<List<ModelClassFrench>> call, @NonNull Response<List<ModelClassFrench>> response) {
-                List<ModelClassFrench> data = response.body();
-                onFrenchDataLoaded.onFrenchDataLoaded(data);
+                onFrenchDataLoaded.onFrenchDataLoaded(response.body());
             }
 
             @Override
@@ -132,8 +139,7 @@ public class DatabaseAccess {
         call.enqueue(new Callback<List<ModelClassEnglish>>() {
             @Override
             public void onResponse(@NonNull Call<List<ModelClassEnglish>> call, @NonNull Response<List<ModelClassEnglish>> response) {
-                List<ModelClassEnglish> data = response.body();
-                onEnglishDataLoaded.onEnglishDataLoaded(data);
+                onEnglishDataLoaded.onEnglishDataLoaded(response.body());
             }
 
             @Override
@@ -218,8 +224,7 @@ public class DatabaseAccess {
 
     //Returns pronouns list that applies to different french verb tenses;
     public String[] returnPronounListFrench(String tense, String verb) {
-        String auxiliary = returnAuxiliary(verb);
-        if(auxiliary.equals("Avoir")) {
+        if(returnAuxiliary(verb).equals("Avoir")) {
             switch (tense) {
                 case "Présent":
                 case "Imparfait":
@@ -280,7 +285,7 @@ public class DatabaseAccess {
         return null;
     }
 
-    private String returnAuxiliary(String verb) {
+    public String returnAuxiliary(String verb) {
         switch (verb) {
             case "aller":
             case "arriver":
@@ -362,6 +367,47 @@ public class DatabaseAccess {
                 return verbData.getSubjonctif().getPlusQueParfait();
         }
         return null;
+    }
+
+    public void saveStatsToDatabase(String tense, String scores, String date, String language) {
+        assert user != null;
+        String userUID = user.getUid();
+        //generates a random key for each object in the user's score
+        String timeStampKey = languageReference.child("Languages")
+                .child("Scores").child(userUID).push().getKey();
+        //sets an order variable that will be used to organize data chronologically
+        assert timeStampKey != null;
+        languageReference.child("Languages").child("Scores").child(userUID)
+                .child(timeStampKey).child("order").setValue(ServerValue.TIMESTAMP);
+        //turns that order value number into negative so data can be organized from newest to oldest;
+        languageReference.child("Languages").child("Scores").child(userUID)
+                .child(timeStampKey).child("order").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() != null) {
+                    if (!(Long.parseLong(snapshot.getValue().toString()) < 0)) {
+                        languageReference.child("Languages").child("Scores").child(userUID)
+                                .child(timeStampKey).child("order")
+                                .setValue(-Long.parseLong(snapshot.getValue().toString()));
+                    }
+                    //saves data passed as arguments into database variables
+                    //variables saved with lowercase pattern to match with Stats model class
+                    languageReference.child("Languages").child("Scores").child(userUID)
+                            .child(timeStampKey).child("tense").setValue(tense);
+                    languageReference.child("Languages").child("Scores").child(userUID)
+                            .child(timeStampKey).child("score").setValue(scores);
+                    languageReference.child("Languages").child("Scores").child(userUID)
+                            .child(timeStampKey).child("date").setValue(date);
+                    languageReference.child("Languages").child("Scores").child(userUID)
+                            .child(timeStampKey).child("language").setValue(language);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }

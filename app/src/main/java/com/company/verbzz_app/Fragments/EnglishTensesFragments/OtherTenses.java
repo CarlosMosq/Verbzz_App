@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.Classes.EnglishModelClasses.ModelClassEnglish;
-import com.company.verbzz_app.Classes.VerbEventBus;
+import com.company.verbzz_app.Classes.EventBusClasses.VerbEventBus;
 import com.company.verbzz_app.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -47,9 +47,9 @@ public class OtherTenses extends Fragment {
             infinitiveText.setText(verbData.getInfinitive().get(0));
             gerundText.setText(verbData.getGerund().get(0));
             participleText.setText(verbData.getParticiple().get(0));
-            imperativeTextYou.setText(verbData.getImperative().get(0));
-            imperativeTextWe.setText(String.format("%s%s", "Let's", verbData.getImperative().get(1)));
-            imperativeTextYouPlural.setText(verbData.getImperative().get(2));
+            imperativeTextYou.setText(String.format("%s %s", "(You)", verbData.getImperative().get(0)));
+            imperativeTextWe.setText(String.format("%s %s", "Let's", verbData.getImperative().get(1)));
+            imperativeTextYouPlural.setText(String.format("%s %s", "(You)", verbData.getImperative().get(2)));
         });
 
         return view;

@@ -11,21 +11,36 @@ import android.widget.ImageButton;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.company.verbzz_app.Activities.Authentication_Page;
 import com.company.verbzz_app.Activities.Conjugate_Activity;
 import com.company.verbzz_app.Activities.GradedPractice;
+import com.company.verbzz_app.Activities.TranslationPractice;
+import com.company.verbzz_app.Adapters.Language_Drawer_Adapter;
 import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class LessonsFragment extends Fragment {
 
     ImageButton languageMenu, logOut;
-    Button conjugations, gradedPractice, memorization;
+    Button conjugations, gradedPractice, translation;
+    private String currentLanguage;
 
-    DrawerLayout drawerLayout;
-    DatabaseAccess databaseAccess = new DatabaseAccess();
+    private DrawerLayout drawerLayout;
+    NavigationView navigationViewLessons;
+    private RecyclerView recyclerView;
+    private final DatabaseAccess databaseAccess = new DatabaseAccess();
+    private final ArrayList<String> languages = new ArrayList<>();
+    private Language_Drawer_Adapter adapter;
 
     public LessonsFragment() {
         // Required empty public constructor
@@ -41,31 +56,52 @@ public class LessonsFragment extends Fragment {
         languageMenu = view.findViewById(R.id.menuDrawerButton);
         conjugations = view.findViewById(R.id.conjugations);
         gradedPractice = view.findViewById(R.id.gradedPractice);
-        memorization = view.findViewById(R.id.memorization);
+        translation = view.findViewById(R.id.memorization);
         drawerLayout = view.findViewById(R.id.drawerLayout);
+        navigationViewLessons = view.findViewById(R.id.navigationViewLessons);
         logOut = view.findViewById(R.id.logOut);
 
+        recyclerView = view.findViewById(R.id.lessonsFlagRecycler);
+        adapter = new Language_Drawer_Adapter(languages, view.getContext());
+
+        //Ads set up
+        MobileAds.initialize(view.getContext(), initializationStatus -> {
+
+        });
+
+        AdView mAdView = view.findViewById(R.id.adViewLessons);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         //Sets the language flag at the top of the fragment by accessing database;
-        databaseAccess.checkCurrentLanguage(language -> databaseAccess.setBackgroundFlag(language, languageMenu));
+        checkCurrentLanguage();
 
         //Opens the drawer that allows language change;
         languageMenu.setOnClickListener(v -> openDrawer(drawerLayout));
 
         //Opens the page that allows for conjugation of all verbs;
         conjugations.setOnClickListener(v -> {
-            Intent i = new Intent(getActivity(), Conjugate_Activity.class);
-            startActivity(i);
+            Intent conjugationIntent = new Intent(getActivity(), Conjugate_Activity.class);
+            startActivity(conjugationIntent);
         });
 
+        //Opens the page that allows for conjugation practice;
         gradedPractice.setOnClickListener(v -> {
-            Intent i = new Intent(getActivity(), GradedPractice.class);
-            startActivity(i);
+            Intent gradedIntent = new Intent(getActivity(), GradedPractice.class);
+            startActivity(gradedIntent);
         });
 
-        memorization.setOnClickListener(v -> {
+        //Opens the page that allows for translation practice;
+        translation.setOnClickListener(v -> {
+            Intent translationIntent = new Intent(getActivity(), TranslationPractice.class);
+            translationIntent.putExtra("currentLanguage", currentLanguage);
+            startActivity(translationIntent);
+        });
 
-            //Create "Sporcle-like" quizzes to memorize main verbs and their equivalents in french/english;
-
+        navigationViewLessons.setNavigationItemSelectedListener(item -> {
+            item.setChecked(true);
+            checkCurrentLanguage();
+            return true;
         });
 
         //Log out button - design it better;
@@ -77,20 +113,41 @@ public class LessonsFragment extends Fragment {
 
     public void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
+        currentLanguages(languages);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setAdapter(adapter);
     }
 
-    public void closeDrawer(DrawerLayout drawerLayout) {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
+    public void closeDrawer() {
+        if(this.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            this.drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
+    //Log out through firebase
     public void logOut() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.signOut();
-        Intent i = new Intent(getActivity(), Authentication_Page.class);
-        startActivity(i);
+        Intent logOutIntent = new Intent(getActivity(), Authentication_Page.class);
+        startActivity(logOutIntent);
         if(getActivity() != null) getActivity().finish();
+    }
+
+    private void checkCurrentLanguage() {
+        databaseAccess.checkCurrentLanguage(language -> {
+            databaseAccess.setBackgroundFlag(language, languageMenu);
+            setCurrentLanguage(language);
+            closeDrawer();
+        });
+    }
+
+    private void setCurrentLanguage(String language) {
+        this.currentLanguage = language;
+    }
+
+    private void currentLanguages(ArrayList<String> languages) {
+        languages.add("English");
+        languages.add("Français");
     }
 
 }

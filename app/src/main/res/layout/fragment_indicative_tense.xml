@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bee_fly"
     android:contentDescription="@string/scroll"
-    tools:context=".Fragments.EnglishTensesFragments.IndicativeTense" >
+    tools:context=".Fragments.EnglishTensesFragments.IndicativeTense">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/conjugatedRecycler"

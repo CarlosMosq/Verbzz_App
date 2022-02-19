@@ -40,11 +40,11 @@ public class Forgot_Password extends AppCompatActivity {
             String email = emailField.getText().toString();
             auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
-                    Toast.makeText(Forgot_Password.this, "Link Successfully Sent. Please verify your E-mail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Forgot_Password.this, getText(R.string.forgotLinkSent), Toast.LENGTH_SHORT).show();
                     goToLogin();
                 }
                 else{
-                    Toast.makeText(Forgot_Password.this, "Error, Please Try Again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Forgot_Password.this, getText(R.string.errorLinkSent), Toast.LENGTH_SHORT).show();
                     emailField.setText("");
                 }
                 progressBar.setVisibility(View.INVISIBLE);

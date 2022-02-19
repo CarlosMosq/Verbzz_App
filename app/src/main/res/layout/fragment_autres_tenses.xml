@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/text_gray">
+    android:background="@drawable/bee_fly">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/information_buttons"
-        android:gravity="center"
+        android:gravity="center|clip_vertical"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +24,17 @@
             android:id="@+id/infinitif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:background="@color/dark_yellow"
+            android:gravity="start"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:text="@string/infinitif"
             android:textColor="@color/text_gray"
             android:textSize="34sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -57,8 +60,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -86,7 +88,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -101,7 +103,10 @@
             android:id="@+id/participe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:background="@color/dark_yellow"
+            android:gravity="start"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:text="@string/participe"
             android:textColor="@color/text_gray"
             android:textSize="34sp" />
@@ -134,8 +139,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -161,7 +165,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -176,7 +180,10 @@
             android:id="@+id/imperatif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:background="@color/dark_yellow"
+            android:gravity="start"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:text="@string/imperatif"
             android:textColor="@color/text_gray"
             android:textSize="34sp" />
@@ -239,6 +246,7 @@
                 android:text="@string/i"
                 android:textSize="24sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -322,6 +330,7 @@
                 android:text="@string/i"
                 android:textSize="24sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -346,7 +355,6 @@
                 android:text="@string/i"
                 android:textSize="24sp" />
         </LinearLayout>
-
 
 
     </LinearLayout>

@@ -1,66 +1,105 @@
 package com.company.verbzz_app.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.SkuDetails;
+import com.android.billingclient.api.SkuDetailsParams;
 import com.company.verbzz_app.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ShoppingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShoppingFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    BillingClient billingClient;
+    TextView disableAds;
+    Button priceButton;
+    Activity activity;
 
     public ShoppingFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShoppingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ShoppingFragment newInstance(String param1, String param2) {
-        ShoppingFragment fragment = new ShoppingFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping, container, false);
+        View view = inflater.inflate(R.layout.fragment_shopping, container, false);
+        disableAds = view.findViewById(R.id.disableAds);
+        priceButton = view.findViewById(R.id.priceButton);
+        activity = getActivity();
+
+        billingClient = BillingClient
+                .newBuilder(view.getContext())
+                .enablePendingPurchases()
+                .setListener((billingResult, list) -> {
+                    if(billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && list != null) {
+                        for(Purchase purchase : list) {
+                            if(purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED
+                            && !purchase.isAcknowledged()) {
+                                //finish setting up communication with firebase
+                            }
+                        }
+                    }
+                })
+                .build();
+        connectToGooglePlayBilling();
+
+
+        return view;
     }
+
+
+    private void connectToGooglePlayBilling() {
+        billingClient.startConnection(new BillingClientStateListener() {
+            @Override
+            public void onBillingServiceDisconnected() {
+                connectToGooglePlayBilling();
+            }
+
+            @Override
+            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
+                if(billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
+                    getProductDetails();
+                }
+            }
+        });
+    }
+
+    private void getProductDetails() {
+        List<String> productIds = new ArrayList<>();
+        productIds.add("remove_ads");
+        SkuDetailsParams getProductDetailsQuery = SkuDetailsParams
+                .newBuilder()
+                .setSkusList(productIds)
+                .setType(BillingClient.SkuType.INAPP)
+                .build();
+        billingClient.querySkuDetailsAsync(getProductDetailsQuery, (billingResult, list) -> {
+            if(billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && list != null) {
+                SkuDetails itemsInfo = list.get(0);
+                disableAds.setText(getString(R.string.disable));
+                priceButton.setText(itemsInfo.getPrice());
+                priceButton.setOnClickListener(view ->
+                        billingClient.launchBillingFlow(activity
+                        , BillingFlowParams
+                                .newBuilder()
+                                .setSkuDetails(itemsInfo)
+                                .build()));
+            }
+        });
+    }
+
 }

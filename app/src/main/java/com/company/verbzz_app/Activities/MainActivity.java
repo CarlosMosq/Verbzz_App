@@ -1,5 +1,6 @@
 package com.company.verbzz_app.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private final LessonsFragment lessonsFragment = new LessonsFragment();
     private final StatisticsFragment statisticsFragment = new StatisticsFragment();
     private final ShoppingFragment shoppingFragment = new ShoppingFragment();
-    boolean falseForLessons = getIntent().getBooleanExtra("setStatistics", false);
+    boolean falseForLessons = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         homeButton = findViewById(R.id.homeButton);
         statistics = findViewById(R.id.statisticsButton);
         shoppingCart = findViewById(R.id.shoppingCart);
+        Intent i = getIntent();
+        if (i != null) {
+            falseForLessons = i.getBooleanExtra("setStatistics", false);
+        }
 
         setInitialFragment(falseForLessons);
 

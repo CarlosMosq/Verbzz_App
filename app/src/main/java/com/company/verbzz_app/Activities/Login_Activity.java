@@ -13,14 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.company.verbzz_app.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login_Activity extends AppCompatActivity {
 
     TextInputEditText emailField;
     TextInputEditText passwordField;
     Button logIn;
-    TextView noAccount;
-    TextView forgotPassword;
+    TextView noAccount, forgotPassword;
     ProgressBar progressBar;
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -64,12 +64,25 @@ public class Login_Activity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
-                Toast.makeText(Login_Activity.this, "Access Granted", Toast.LENGTH_SHORT).show();
-                goToMain();
+                FirebaseUser user = auth.getCurrentUser();
+                assert user != null;
+                if(user.isEmailVerified()) {
+                    Toast.makeText(Login_Activity.this, getText(R.string.accessGranted), Toast.LENGTH_SHORT).show();
+                    goToMain();
+                }
+                else{
+                    user
+                            .sendEmailVerification()
+                            .addOnSuccessListener(unused ->
+                                    Toast.makeText(Login_Activity.this
+                                            , getText(R.string.verifyEmail)
+                                            , Toast.LENGTH_SHORT).show());
+                }
+
                 progressBar.setVisibility(View.INVISIBLE);
             }
             else {
-                Toast.makeText(Login_Activity.this, "E-mail or Password Incorrect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login_Activity.this, getText(R.string.incorrect), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.company.verbzz_app.Classes;
 
+import java.util.Random;
+
 public class RandomizeVerbsAndTenses {
 
     private final String[] hundredMostCommonEnglish = {
@@ -57,7 +59,7 @@ public class RandomizeVerbsAndTenses {
             , "sembler", "travailler", "abolir", "agir", "bâtir"
             , "choisir", "établir", "finir", "grossir", "maigrir", "nourrir"
             , "obéir", "réfléchir", "remplir", "réussir", "rougir", "vieillir", "attendre"
-            , "défendre", "descendre" , "entendre", "étendre", "fondre", "pendre", "perdre"
+            , "défendre", "descendre", "entendre", "étendre", "fondre", "pendre", "perdre"
             , "prétendre", "rendre", "répandre", "répondre", "vendre"};
 
     private final String[] mostCommonIrregularsFrench = {"aller", "avoir", "dire"
@@ -127,8 +129,6 @@ public class RandomizeVerbsAndTenses {
     }
 
     public int returnRandomIndex(int max) {
-        int min = 1;
-        int range = max - min + 1;
-        return (int) (Math.random() * range) + min;
+        return new Random().nextInt(max);
     }
 }

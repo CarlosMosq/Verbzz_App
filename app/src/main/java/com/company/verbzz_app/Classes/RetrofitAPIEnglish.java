@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface RetrofitAPIEnglish {
 
-    @GET("Drulac/English-Verbs-Conjugates/master/verbs-conjugations.json")
+    @GET("CarlosMosq/English-Verbs-Conjugates/master/verbs-conjugations.json")
     Call<List<ModelClassEnglish>> getModelClass();
 }

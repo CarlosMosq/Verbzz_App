@@ -1,5 +1,6 @@
 package com.company.verbzz_app.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.company.verbzz_app.Activities.MainActivity;
 import com.company.verbzz_app.R;
 
 public class BlankHoneyFragment extends Fragment {
@@ -29,6 +31,12 @@ public class BlankHoneyFragment extends Fragment {
 
         image = view.findViewById(R.id.honeyCombBlank);
         text = view.findViewById(R.id.app_title_blank);
+
+        image.setOnClickListener(view1 -> {
+            Intent intentToMain = new Intent(getActivity(), MainActivity.class);
+            startActivity(intentToMain);
+            if(getActivity() != null) getActivity().finish();
+        });
 
         return view;
     }

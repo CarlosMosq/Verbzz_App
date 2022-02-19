@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface RetrofitAPIFrench {
 
-    @GET("Drulac/Verbes-Francais-Conjugues/master/verbes_lowercase.json")
+    @GET("CarlosMosq/Verbes-Francais-Conjugues/master/verbs_without_signs.json")
     Call<List<ModelClassFrench>> getModelClass();
 
 }

@@ -3,6 +3,7 @@
     package="com.company.verbzz_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -12,14 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Verbzz_App"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3257840631399246~5735457116"/>
+
+        <activity
+            android:name=".Activities.TranslationPractice"
+            android:exported="false" />
         <activity
             android:name=".Activities.LanguagePractice"
             android:exported="false" />
         <activity
             android:name=".Activities.GradedPractice"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.Select_Language_Drawer"
             android:exported="false" />
         <activity
             android:name=".Activities.Conjugate_Activity"

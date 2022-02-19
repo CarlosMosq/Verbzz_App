@@ -172,11 +172,10 @@
             android:paddingEnd="2dp"
             android:paddingBottom="2dp"
             android:text="@string/start"
-            android:textColor="@color/icy_white"
+            android:textColor="@color/text_gray"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TextContrastCheck" />
 

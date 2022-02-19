@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.company.verbzz_app.Classes.DatabaseAccess;
 import com.company.verbzz_app.Classes.FrenchModelClasses.ModelClassFrench;
-import com.company.verbzz_app.Classes.VerbEventBus;
+import com.company.verbzz_app.Classes.EventBusClasses.VerbEventBus;
 import com.company.verbzz_app.R;
 
 import org.greenrobot.eventbus.EventBus;

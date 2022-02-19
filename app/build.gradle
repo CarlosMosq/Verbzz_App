@@ -43,12 +43,16 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'org.greenrobot:eventbus:3.3.1'
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
+    def billing_version = "4.0.0"
+    implementation "com.android.billingclient:billing:$billing_version"
 
     apply plugin: 'com.google.gms.google-services'
     testImplementation 'junit:junit:4.+'

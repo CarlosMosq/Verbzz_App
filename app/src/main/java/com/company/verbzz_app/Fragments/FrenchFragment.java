@@ -38,6 +38,7 @@ public class FrenchFragment extends Fragment {
     }
 
     private void fillVerbArray(ArrayList<String> tenses) {
+        if(!tenses.isEmpty()) tenses.clear();
         //these three will have their own separate fragment
         tenses.add("Indicatif");
         tenses.add("Conditionnel");

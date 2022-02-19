@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.company.verbzz_app.Adapters.ConjugationAdapterFrench;
-import com.company.verbzz_app.Classes.VerbEventBus;
+import com.company.verbzz_app.Classes.EventBusClasses.VerbEventBus;
 import com.company.verbzz_app.R;
 
 import org.greenrobot.eventbus.EventBus;

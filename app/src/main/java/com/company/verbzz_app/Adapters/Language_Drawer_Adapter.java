@@ -37,7 +37,7 @@ public class Language_Drawer_Adapter extends RecyclerView.Adapter<Language_Drawe
         if(languages.get(position).equals("English")) {
             holder.flag.setImageResource(R.drawable.english_language);
         }
-        else if(languages.get(position).equals("French")) {
+        else if(languages.get(position).equals("Français")) {
             holder.flag.setImageResource(R.drawable.french_language);
         }
         else {

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.company.verbzz_app.Adapters.ConjugationAdapter;
-import com.company.verbzz_app.Classes.VerbEventBus;
+import com.company.verbzz_app.Classes.EventBusClasses.VerbEventBus;
 import com.company.verbzz_app.R;
 
 import org.greenrobot.eventbus.EventBus;

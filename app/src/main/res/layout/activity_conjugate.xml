@@ -98,9 +98,26 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutConjugate">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutConjugate"
+            app:layout_constraintVertical_bias="0.0">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="500dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:clickable="true"
+                android:contentDescription="@string/homeButtonDescr"
+                android:focusable="true"
+                android:foregroundGravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_nicubunu_honey" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -108,16 +125,15 @@
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationConjugate"
         android:layout_width="match_parent"
-        android:layout_height="221dp"
-        android:layout_gravity="start">
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="71dp">
 
-        <include
-            layout="@layout/activity_select_language_drawer"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/conjugateRecycler"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="71dp" />
-
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
 
