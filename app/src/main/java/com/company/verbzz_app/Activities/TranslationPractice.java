@@ -265,6 +265,7 @@ public class TranslationPractice extends AppCompatActivity {
 
     //sends stats to database to be displayed in statistics page;
     private void sendDataToStats() {
+        verbCount--;
         String date = new Date().toString();
         databaseAccess.saveStatsToDatabase("Translation"
                 , String.format("%s (%s)", formatFraction(), formatPercentage())

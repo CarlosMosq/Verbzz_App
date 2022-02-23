@@ -105,19 +105,21 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="320dp"
-                android:layout_marginTop="500dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="bottom|end"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:clickable="true"
                 android:contentDescription="@string/homeButtonDescr"
                 android:focusable="true"
                 android:foregroundGravity="center"
+                app:fabCustomSize="75dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_nicubunu_honey" />
+                app:maxImageSize="48dp"
+                app:srcCompat="@drawable/ic_nicubunu_honey"
+                tools:ignore="ImageContrastCheck" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

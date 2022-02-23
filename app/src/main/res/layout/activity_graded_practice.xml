@@ -42,10 +42,12 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
             android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/customize"
             android:textColor="@color/text_gray"
             android:textSize="34sp"

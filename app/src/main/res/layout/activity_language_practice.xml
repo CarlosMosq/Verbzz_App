@@ -90,10 +90,11 @@
             android:id="@+id/checkAnswer"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="250dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/dark_orange"
             android:gravity="center"
+            android:maxLines="2"
             android:text="@string/checkAnswer"
             android:textAllCaps="false"
             android:textColor="@color/icy_white"
@@ -169,7 +170,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:contentDescription="@string/percentage"
+                android:contentDescription="@string/percentageImg"
                 app:srcCompat="@drawable/ic_baseline_percent_24" />
 
             <TextView

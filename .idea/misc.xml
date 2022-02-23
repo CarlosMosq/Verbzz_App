@@ -19,6 +19,7 @@
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_baseline_timer_off_24.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_biene.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_light_orange.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2203125" />
@@ -26,6 +27,72 @@
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/ic_wave__1_.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/information_buttons.xml" value="0.2203125" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/drawable/search_bars.xml" value="0.2203125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_authentication_page.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_conjugate.xml" value="0.18" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_forgot_password.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_graded_practice.xml" value="0.18" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_language_practice.xml" value="0.18" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_main.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_opening_page.xml" value="0.19" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/activity_translation_practice.xml" value="0.21" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/fragment_lessons.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/fragment_shopping.xml" value="0.2421875" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-land/fragment_statistics.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_authentication_page.xml" value="0.33" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_conjugate.xml" value="0.26015625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_forgot_password.xml" value="0.26015625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_graded_practice.xml" value="0.26015625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_language_practice.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_login.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_main.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_opening_page.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_sign_up.xml" value="0.1734375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/activity_translation_practice.xml" value="0.2" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/fragment_lessons.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/fragment_shopping.xml" value="0.2421875" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large-land/fragment_statistics.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_authentication_page.xml" value="0.33" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_conjugate.xml" value="0.30625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_forgot_password.xml" value="0.30625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_graded_practice.xml" value="0.30625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_language_practice.xml" value="0.30625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_login.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_opening_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/activity_translation_practice.xml" value="0.22" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/fragment_lessons.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/fragment_shopping.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-large/fragment_statistics.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-sw600dp/activity_translation_practice.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_authentication_page.xml" value="0.130078125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_conjugate.xml" value="0.130078125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_forgot_password.xml" value="0.130078125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_graded_practice.xml" value="0.130078125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_language_practice.xml" value="0.14" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_login.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_main.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_opening_page.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_sign_up.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/activity_translation_practice.xml" value="0.16259765625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/fragment_lessons.xml" value="0.24072265625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/fragment_shopping.xml" value="0.22705078125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge-land/fragment_statistics.xml" value="0.24072265625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_authentication_page.xml" value="0.18" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_conjugate.xml" value="0.153125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_forgot_password.xml" value="0.153125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_graded_practice.xml" value="0.153125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_language_practice.xml" value="0.153125" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_login.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_main.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_opening_page.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_sign_up.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/activity_translation_practice.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/fragment_lessons.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/fragment_shopping.xml" value="0.19140625" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout-xlarge/fragment_statistics.xml" value="0.19140625" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_authentication_page.xml" value="0.25" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_conjugate.xml" value="0.25" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
@@ -64,6 +131,7 @@
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_subjonctif_tense.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/fragment_subjunctive_tense.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/layout/verb_tenses_card.xml" value="0.22" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/Verbzz_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11302083333333333" />
       </map>
     </option>
   </component>

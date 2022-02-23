@@ -303,6 +303,7 @@ public class LanguagePractice extends AppCompatActivity {
 
     //sends stats to database to be displayed in statistics page;
     private void sendDataToStats() {
+        verbCount--;
         String date = new Date().toString();
         databaseAccess.saveStatsToDatabase(tense
                 , String.format("%s (%s)", formatFraction(), formatPercentage())

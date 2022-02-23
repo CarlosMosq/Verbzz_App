@@ -49,7 +49,8 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.statsViewHol
 
     @Override
     public int getItemCount() {
-        return list.size();
+        int limit = 50;
+        return Math.min(list.size(), limit);
     }
 
     public static class statsViewHolder extends RecyclerView.ViewHolder {

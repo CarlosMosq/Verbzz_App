@@ -5,7 +5,7 @@
     <string name="getStarted">Commencez</string>
     <string name="log_in">Entrez</string>
     <string name="log_out">Sortez</string>
-    <string name="style_phrase">Commencez doucement, travaillez dur</string>
+    <string name="style_phrase">Petit à petit on peut faire de grandes choses</string>
     <string name="email">Saisissez votre addresse e-mail</string>
     <string name="password">Saisissez votre mot de passe</string>
     <string name="account">Créer un Compte</string>
@@ -37,8 +37,8 @@
     <string name="date">Date</string>
     <string name="switchLanguage">Changez</string>
     <string name="Purchases">Achetez</string>
-    <string name="disable">Supprimez les Annonces</string>
-    <string name="percentage">symbole de pourcentage</string>
+    <string name="disable">Il n\'y a pas des produits disponibles pour le moment</string>
+    <string name="percentageImg">symbole de pourcentage</string>
     <string name="timerIcon">symbole de temps</string>
     <string name="scroll">écran déroulant</string>
     <string name="bttnLogOut">symbole pour sortir de l\'application</string>

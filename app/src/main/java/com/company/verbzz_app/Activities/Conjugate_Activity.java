@@ -62,6 +62,7 @@ public class Conjugate_Activity extends AppCompatActivity {
         adapter = new Language_Drawer_Adapter(languages, this);
 
         //Sets the language flag at the top of the fragment by accessing database and sets Fragment that will be used;
+        setInitialFragment();
         checkCurrentLanguage();
 
         //Opens drawer that allows language change;
@@ -76,6 +77,7 @@ public class Conjugate_Activity extends AppCompatActivity {
         //collects verb provided by user and does call to retrofit with according language
         conjugateButton.setOnClickListener(v -> {
             String verb = verbInput.getText().toString();
+            verbInput.setText("");
             callToRetrofit(currentLanguage, verb);
         });
 
@@ -112,12 +114,19 @@ public class Conjugate_Activity extends AppCompatActivity {
         }
     }
 
+    //Method to be used to set firstFragment
+    private void setInitialFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.conjugatedView, blankHoneyFragment);
+        fragmentTransaction.commit();
+    }
+
     //Method to be used when fragment needs to be changed
     private void changeFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.conjugatedView, fragment);
-        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -171,6 +180,7 @@ public class Conjugate_Activity extends AppCompatActivity {
         if(this.drawerLayout.isDrawerOpen(GravityCompat.START)){
             this.drawerLayout.closeDrawer(GravityCompat.START);
         }
+        verbInput.setText("");
     }
 
     private void currentLanguages(ArrayList<String> languages) {
@@ -178,4 +188,9 @@ public class Conjugate_Activity extends AppCompatActivity {
         languages.add("Français");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        changeFragment(blankHoneyFragment);
+    }
 }

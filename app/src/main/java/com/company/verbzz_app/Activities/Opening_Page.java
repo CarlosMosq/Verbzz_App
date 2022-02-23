@@ -1,7 +1,5 @@
 package com.company.verbzz_app.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,10 +9,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.company.verbzz_app.R;
 
 public class Opening_Page extends AppCompatActivity {
-
     ImageView honeycomb;
     TextView title;
 

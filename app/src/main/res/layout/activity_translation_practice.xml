@@ -180,7 +180,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:contentDescription="@string/percentage"
+                android:contentDescription="@string/percentageImg"
                 app:srcCompat="@drawable/ic_baseline_percent_24" />
 
             <TextView

@@ -37,8 +37,8 @@
     <string name="date">Data</string>
     <string name="switchLanguage">Trocar</string>
     <string name="Purchases">Compras</string>
-    <string name="disable">Desativar Anúncios</string>
-    <string name="percentage">símbolo de porcentagem</string>
+    <string name="disable">Não há produtos disponíveis para venda nesse momento</string>
+    <string name="percentageImg">símbolo de porcentagem</string>
     <string name="timerIcon">símbolo de tempo</string>
     <string name="scroll">tela rolável</string>
     <string name="bttnLogOut">símbolo para deslogar do aplicativo</string>

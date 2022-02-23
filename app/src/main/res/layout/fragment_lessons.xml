@@ -10,8 +10,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bee_fly">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/beeSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-200dp"
+            android:contentDescription="@string/bee"
+            android:src="@drawable/bee_fly"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/honey_bee_flower"
+            tools:ignore="ImageContrastCheck" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -39,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="27dp"
+                android:gravity="center"
                 android:text="@string/log_out"
                 android:textColor="@color/text_gray"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -64,10 +78,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="175dp"
             android:background="@drawable/information_buttons"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +91,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/dark_yellow"
+                android:gravity="center"
                 android:text="@string/conjugation"
                 android:textColor="@color/icy_white"
                 android:textSize="24sp"
@@ -93,6 +105,7 @@
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:backgroundTint="@color/dark_yellow"
+                android:gravity="center"
                 android:text="@string/conjugationPractice"
                 android:textColor="@color/icy_white"
                 android:textSize="24sp"
@@ -106,8 +119,9 @@
                 android:id="@+id/memorization"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="150dp"
+                android:layout_marginBottom="100dp"
                 android:backgroundTint="@color/dark_yellow"
+                android:gravity="center"
                 android:text="@string/translation"
                 android:textColor="@color/icy_white"
                 android:textSize="24sp"
@@ -119,7 +133,7 @@
             <!-- real adUnit is ca-app-pub-3257840631399246/6210099832. The one currently set is for tests-->
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adViewLessons"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"

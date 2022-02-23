@@ -45,8 +45,6 @@
     <string name="date">Date</string>
     <string name="switchLanguage">Switch</string>
     <string name="Purchases">Shopping</string>
-    <string name="disable">Disable Ads</string>
-    <string name="pricePlaceholder" translatable="false">R$ 0,99</string>
 
     <!-- Toast messages-->
     <string name="languageNotSet">Current language not set</string>
@@ -74,7 +72,7 @@
     <string name="bttnLogOut">Image of an arrow indicating log out</string>
     <string name="scroll">Scrollable screen</string>
     <string name="timerIcon">Timer icon</string>
-    <string name="percentage" translatable="false">percentage symbol</string>
+    <string name="percentageImg">percentage symbol</string>
 
     <!-- English Verb tenses and pronouns -->
 
@@ -104,9 +102,11 @@
     <string name="nous" translatable="false">Nous</string>
     <string name="vous" translatable="false">Vous</string>
 
+
     <!-- Ad ids -->
     <string name="test_Interstitial_Ad_ID" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="real_Interstitial_Ad_ID" translatable="false">ca-app-pub-3257840631399246/8115708870</string>
     <string name="translationPlaceholder">to love</string>
+    <string name="disable">There are no products available at this time</string>
 
 </resources>
