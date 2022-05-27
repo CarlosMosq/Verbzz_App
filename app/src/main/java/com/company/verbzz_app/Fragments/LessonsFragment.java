@@ -28,6 +28,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 public class LessonsFragment extends Fragment {
 
@@ -64,14 +65,18 @@ public class LessonsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.lessonsFlagRecycler);
         adapter = new Language_Drawer_Adapter(languages, view.getContext());
 
-        //Ads set up
-        MobileAds.initialize(view.getContext(), initializationStatus -> {
+        CompletableFuture.runAsync(() -> {
+            //Ads set up
+            MobileAds.initialize(view.getContext(), initializationStatus -> {
 
+            });
+
+            AdView mAdView = view.findViewById(R.id.adViewLessons);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
         });
 
-        AdView mAdView = view.findViewById(R.id.adViewLessons);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         //Sets the language flag at the top of the fragment by accessing database;
         checkCurrentLanguage();

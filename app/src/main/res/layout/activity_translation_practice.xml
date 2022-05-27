@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="@string/switchLanguage"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/pronounAndVerbTranslation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,15 +68,15 @@
             android:id="@+id/pronounAndVerbTranslation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="80dp"
             android:gravity="center"
             android:maxLines="2"
             android:text="@string/translationPlaceholder"
             android:textColor="@color/text_gray"
-            android:textSize="48sp"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/practiceTranslationTitle" />
 
         <EditText
             android:id="@+id/answerEditTextTranslation"
@@ -86,29 +86,29 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/answer"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:maxLines="1"
             android:textColor="@color/text_gray"
             android:textColorHint="@color/light_gray"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pronounAndVerbTranslation"
-            tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/checkAnswerTranslation"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="250dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/dark_orange"
             android:gravity="center"
             android:text="@string/checkAnswer"
             android:textAllCaps="false"
             android:textColor="@color/icy_white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
             app:iconTint="@color/icy_white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,7 @@
             android:maxLines="2"
             android:text="@string/status"
             android:textColor="#FF0000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
             tools:ignore="ImageContrastCheck" />
 
         <LinearLayout
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -155,7 +155,7 @@
             <ImageView
                 android:id="@+id/timerImageTranslation"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
@@ -172,12 +172,12 @@
                 android:gravity="center"
                 android:text="@string/timePlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/percentageTranslation"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:contentDescription="@string/percentageImg"
@@ -192,7 +192,7 @@
                 android:gravity="center"
                 android:text="@string/percentagePlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/fractionCountTranslation"
@@ -204,7 +204,7 @@
                 android:gravity="center"
                 android:text="@string/fractionPlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,7 @@ public class LanguagePractice extends AppCompatActivity {
     Button checkAnswer;
     String tense, time, currentLanguage, pronoun, verb;
     CountDownTimer timeToPlay;
+    ProgressBar progressBar;
     int pronounIndex, verbCount, rightAnswers, wrongAnswers, nbrOfVerbs;
     double percentage;
     private final DatabaseAccess databaseAccess = new DatabaseAccess();
@@ -67,6 +69,7 @@ public class LanguagePractice extends AppCompatActivity {
         percentageCount = findViewById(R.id.percentageCount);
         fractionCount = findViewById(R.id.fractionCount);
         practiceTitle = findViewById(R.id.practiceTitle);
+        progressBar = findViewById(R.id.progressBarPractice);
         bellSound = MediaPlayer.create(this, R.raw.bell);
         errorSound = MediaPlayer.create(this, R.raw.error);
 
@@ -76,6 +79,7 @@ public class LanguagePractice extends AppCompatActivity {
         currentLanguage = i.getStringExtra("currentLanguage");
         nbrOfVerbs = i.getIntExtra("nbrOfVerbs", 10);
 
+        progressBar.setVisibility(View.INVISIBLE);
         practiceTitle.setText(tense);
         pronounAndVerb.setText(setPronounAndVerb());
         fractionCount.setText(formatFraction());
@@ -136,6 +140,7 @@ public class LanguagePractice extends AppCompatActivity {
 
         //checks if answer is right and resets components
         checkAnswer.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
             String answer = answerEntry.getText().toString().trim();
             answerEntry.setText("");
             if (currentLanguage.equals("English")) {
@@ -144,6 +149,7 @@ public class LanguagePractice extends AppCompatActivity {
                     ModelClassEnglish verbData = data.get(verbIndexOnDatabase);
                     List<String> list = databaseAccess.returnVerbListEnglish(verbData, transformEnglishTense(tense));
                     formatComponents(answer, list);
+                    progressBar.setVisibility(View.INVISIBLE);
                 });
             }
             else {
@@ -152,6 +158,7 @@ public class LanguagePractice extends AppCompatActivity {
                     ModelClassFrench verbData = data.get(verbIndexOnDatabase);
                     List<String> list = databaseAccess.returnVerbListFrench(verbData, transformFrenchTense(tense));
                     formatComponents(answer, list);
+                    progressBar.setVisibility(View.INVISIBLE);
                 });
             }
         });

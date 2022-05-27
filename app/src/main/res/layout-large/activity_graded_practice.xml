@@ -49,7 +49,7 @@
             android:maxLines="2"
             android:text="@string/customize"
             android:textColor="@color/text_gray"
-            android:textSize="42sp"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
                     android:paddingEnd="15dp"
                     android:textColor="@color/text_gray"
                     android:textColorHint="@color/text_gray"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,7 +113,7 @@
                     android:paddingEnd="15dp"
                     android:textColor="@color/text_gray"
                     android:textColorHint="@color/text_gray"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,7 +146,7 @@
                 android:paddingBottom="10dp"
                 android:text="@string/fivemin"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/timeSwitch"
@@ -173,7 +173,7 @@
             android:paddingBottom="2dp"
             android:text="@string/start"
             android:textColor="@color/text_gray"
-            android:textSize="44sp"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout5"

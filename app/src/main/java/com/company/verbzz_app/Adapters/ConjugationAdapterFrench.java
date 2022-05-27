@@ -16,6 +16,7 @@ import com.company.verbzz_app.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class ConjugationAdapterFrench extends RecyclerView.Adapter<ConjugationAdapterFrench.ConjugationAdapterFrenchViewHolder>{
     /*This adapter is used by French Fragment to set the model of the recycler view that
@@ -43,7 +44,7 @@ public class ConjugationAdapterFrench extends RecyclerView.Adapter<ConjugationAd
 
     @Override
     public void onBindViewHolder(@NonNull ConjugationAdapterFrenchViewHolder holder, int position) {
-        returnConjugation(conjugations.get(position), list -> {
+        returnConjugation(conjugations.get(position), list -> CompletableFuture.runAsync(() -> {
             holder.tenseView.setText(conjugations.get(position));
             holder.iView.setText(format(position, list, 0));
             holder.youView.setText(format(position, list, 1));
@@ -51,7 +52,7 @@ public class ConjugationAdapterFrench extends RecyclerView.Adapter<ConjugationAd
             holder.weView.setText(format(position, list, 3));
             holder.youPluralView.setText(format(position, list, 4));
             holder.theyView.setText(format(position, list, 5));
-        });
+        }));
     }
 
     @Override
@@ -76,14 +77,12 @@ public class ConjugationAdapterFrench extends RecyclerView.Adapter<ConjugationAd
 
     //Accesses database to retrieve french list of conjugations of a specific verb;
     public void returnConjugation(String tense, OnListLoaded onListLoaded) {
-        synchronized (this) {
-            databaseAccess.callRetrofitFrench(data -> {
-                //model class created for retrofit;
-                ModelClassFrench verbData = data.get(index);
-                //Interface used to allow this data to be used outside of this asynchronous function;
-                onListLoaded.onListLoaded(returnVerbList(verbData, tense));
-            });
-        }
+        databaseAccess.callRetrofitFrench(data -> {
+            //model class created for retrofit;
+            ModelClassFrench verbData = data.get(index);
+            //Interface used to allow this data to be used outside of this asynchronous function;
+            onListLoaded.onListLoaded(returnVerbList(verbData, tense));
+        });
     }
 
     //returns a list of verbs conjugated, one item for each pronoun;

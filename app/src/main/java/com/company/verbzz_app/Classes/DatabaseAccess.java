@@ -17,6 +17,7 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,32 +39,38 @@ public class DatabaseAccess {
     private final int[] englishEnd = {44, 123, 211, 270, 312, 357, 388, 425, 460, 473, 482, 514, 550, 560, 576, 654, 659, 725, 881, 937, 952, 962, 1002, 1003, 1009, 1010};
 
     public void saveCurrentLanguageToDatabase(String language) {
-        if (user != null) {
-            String userUID = user.getUid();
-            languageReference.child("Languages").child("Current Language").child(userUID).child("Current Language").setValue(language);
-            languageReference.child("Languages").child("Languages Chosen").child(userUID).child(language).setValue(language);
-        }
+        CompletableFuture.runAsync(() -> {
+            if (user != null) {
+                String userUID = user.getUid();
+                languageReference.child("Languages").child("Current Language")
+                    .child(userUID).child("Current Language").setValue(language);
+                languageReference.child("Languages").child("Languages Chosen")
+                    .child(userUID).child(language).setValue(language);
+            }
+        });
     }
 
     public void checkCurrentLanguage(OnLanguageLoaded onLanguageLoaded) {
-        assert user != null;
-        final String userUID = user.getUid();
-        languageReference
-                .child("Languages")
-                .child("Current Language")
-                .child(userUID)
-                .child("Current Language")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        onLanguageLoaded.onLanguageLoaded(snapshot.getValue(String.class));
-                    }
+        CompletableFuture.runAsync(() -> {
+            assert user != null;
+            final String userUID = user.getUid();
+            languageReference
+                    .child("Languages")
+                    .child("Current Language")
+                    .child(userUID)
+                    .child("Current Language")
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            onLanguageLoaded.onLanguageLoaded(snapshot.getValue(String.class));
+                        }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+        });
     }
 
     public void setBackgroundFlag(String language, ImageButton flag) {
@@ -106,46 +113,50 @@ public class DatabaseAccess {
     }
 
     public void callRetrofitFrench(OnFrenchDataLoaded onFrenchDataLoaded) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        CompletableFuture.runAsync(() -> {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://raw.githubusercontent.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-        RetrofitAPIFrench retrofitAPIFrench = retrofit.create(RetrofitAPIFrench.class);
+            RetrofitAPIFrench retrofitAPIFrench = retrofit.create(RetrofitAPIFrench.class);
 
-        Call<List<ModelClassFrench>> call = retrofitAPIFrench.getModelClass();
-        call.enqueue(new Callback<List<ModelClassFrench>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<ModelClassFrench>> call, @NonNull Response<List<ModelClassFrench>> response) {
-                onFrenchDataLoaded.onFrenchDataLoaded(response.body());
-            }
+            Call<List<ModelClassFrench>> call = retrofitAPIFrench.getModelClass();
+            call.enqueue(new Callback<List<ModelClassFrench>>() {
+                @Override
+                public void onResponse(@NonNull Call<List<ModelClassFrench>> call, @NonNull Response<List<ModelClassFrench>> response) {
+                    onFrenchDataLoaded.onFrenchDataLoaded(response.body());
+                }
 
-            @Override
-            public void onFailure(@NonNull Call<List<ModelClassFrench>> call, @NonNull Throwable t) {
+                @Override
+                public void onFailure(@NonNull Call<List<ModelClassFrench>> call, @NonNull Throwable t) {
 
-            }
+                }
+            });
         });
     }
 
     public void callRetrofitEnglish(OnEnglishDataLoaded onEnglishDataLoaded) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        CompletableFuture.runAsync(() -> {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://raw.githubusercontent.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-        RetrofitAPIEnglish retrofitAPIEnglish = retrofit.create(RetrofitAPIEnglish.class);
+            RetrofitAPIEnglish retrofitAPIEnglish = retrofit.create(RetrofitAPIEnglish.class);
 
-        Call<List<ModelClassEnglish>> call = retrofitAPIEnglish.getModelClass();
-        call.enqueue(new Callback<List<ModelClassEnglish>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<ModelClassEnglish>> call, @NonNull Response<List<ModelClassEnglish>> response) {
-                onEnglishDataLoaded.onEnglishDataLoaded(response.body());
-            }
+            Call<List<ModelClassEnglish>> call = retrofitAPIEnglish.getModelClass();
+            call.enqueue(new Callback<List<ModelClassEnglish>>() {
+                @Override
+                public void onResponse(@NonNull Call<List<ModelClassEnglish>> call, @NonNull Response<List<ModelClassEnglish>> response) {
+                    onEnglishDataLoaded.onEnglishDataLoaded(response.body());
+                }
 
-            @Override
-            public void onFailure(@NonNull Call<List<ModelClassEnglish>> call, @NonNull Throwable t) {
+                @Override
+                public void onFailure(@NonNull Call<List<ModelClassEnglish>> call, @NonNull Throwable t) {
 
-            }
+                }
+            });
         });
     }
 
@@ -370,43 +381,45 @@ public class DatabaseAccess {
     }
 
     public void saveStatsToDatabase(String tense, String scores, String date, String language) {
-        assert user != null;
-        String userUID = user.getUid();
-        //generates a random key for each object in the user's score
-        String timeStampKey = languageReference.child("Languages")
-                .child("Scores").child(userUID).push().getKey();
-        //sets an order variable that will be used to organize data chronologically
-        assert timeStampKey != null;
-        languageReference.child("Languages").child("Scores").child(userUID)
-                .child(timeStampKey).child("order").setValue(ServerValue.TIMESTAMP);
-        //turns that order value number into negative so data can be organized from newest to oldest;
-        languageReference.child("Languages").child("Scores").child(userUID)
-                .child(timeStampKey).child("order").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.getValue() != null) {
-                    if (!(Long.parseLong(snapshot.getValue().toString()) < 0)) {
+        CompletableFuture.runAsync(() -> {
+            assert user != null;
+            String userUID = user.getUid();
+            //generates a random key for each object in the user's score
+            String timeStampKey = languageReference.child("Languages")
+                    .child("Scores").child(userUID).push().getKey();
+            //sets an order variable that will be used to organize data chronologically
+            assert timeStampKey != null;
+            languageReference.child("Languages").child("Scores").child(userUID)
+                    .child(timeStampKey).child("order").setValue(ServerValue.TIMESTAMP);
+            //turns that order value number into negative so data can be organized from newest to oldest;
+            languageReference.child("Languages").child("Scores").child(userUID)
+                    .child(timeStampKey).child("order").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.getValue() != null) {
+                        if (!(Long.parseLong(snapshot.getValue().toString()) < 0)) {
+                            languageReference.child("Languages").child("Scores").child(userUID)
+                                    .child(timeStampKey).child("order")
+                                    .setValue(-Long.parseLong(snapshot.getValue().toString()));
+                        }
+                        //saves data passed as arguments into database variables
+                        //variables saved with lowercase pattern to match with Stats model class
                         languageReference.child("Languages").child("Scores").child(userUID)
-                                .child(timeStampKey).child("order")
-                                .setValue(-Long.parseLong(snapshot.getValue().toString()));
+                                .child(timeStampKey).child("tense").setValue(tense);
+                        languageReference.child("Languages").child("Scores").child(userUID)
+                                .child(timeStampKey).child("score").setValue(scores);
+                        languageReference.child("Languages").child("Scores").child(userUID)
+                                .child(timeStampKey).child("date").setValue(date);
+                        languageReference.child("Languages").child("Scores").child(userUID)
+                                .child(timeStampKey).child("language").setValue(language);
                     }
-                    //saves data passed as arguments into database variables
-                    //variables saved with lowercase pattern to match with Stats model class
-                    languageReference.child("Languages").child("Scores").child(userUID)
-                            .child(timeStampKey).child("tense").setValue(tense);
-                    languageReference.child("Languages").child("Scores").child(userUID)
-                            .child(timeStampKey).child("score").setValue(scores);
-                    languageReference.child("Languages").child("Scores").child(userUID)
-                            .child(timeStampKey).child("date").setValue(date);
-                    languageReference.child("Languages").child("Scores").child(userUID)
-                            .child(timeStampKey).child("language").setValue(language);
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
+                }
+            });
         });
     }
 

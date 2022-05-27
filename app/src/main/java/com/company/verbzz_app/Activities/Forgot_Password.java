@@ -40,6 +40,7 @@ public class Forgot_Password extends AppCompatActivity {
             String email = emailField.getText().toString();
             auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
+                    System.out.println(Thread.currentThread().getName());
                     Toast.makeText(Forgot_Password.this, getText(R.string.forgotLinkSent), Toast.LENGTH_SHORT).show();
                     goToLogin();
                 }
@@ -49,7 +50,6 @@ public class Forgot_Password extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.INVISIBLE);
             });
-
         });
 
         //if backLink TextView is pressed, goToLogin method is used

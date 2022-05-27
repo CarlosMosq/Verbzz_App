@@ -16,6 +16,7 @@ import com.company.verbzz_app.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class ConjugationAdapter extends RecyclerView.Adapter<ConjugationAdapter.ConjugationViewHolder> {
     /*This adapter is used by English Fragment to set the model of the recycler view that
@@ -43,7 +44,7 @@ public class ConjugationAdapter extends RecyclerView.Adapter<ConjugationAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ConjugationViewHolder holder, int position) {
-        returnConjugation(conjugations.get(position), list -> {
+        returnConjugation(conjugations.get(position), list -> CompletableFuture.runAsync(() -> {
             holder.tenseView.setText(conjugations.get(position));
             holder.iView.setText(format(position, list, 0));
             holder.youView.setText(format(position, list, 1));
@@ -51,7 +52,7 @@ public class ConjugationAdapter extends RecyclerView.Adapter<ConjugationAdapter.
             holder.weView.setText(format(position, list, 3));
             holder.youPluralView.setText(format(position, list, 4));
             holder.theyView.setText(format(position, list, 5));
-        });
+        }));
     }
 
     @Override
@@ -76,14 +77,12 @@ public class ConjugationAdapter extends RecyclerView.Adapter<ConjugationAdapter.
 
     //Accesses database to retrieve english list of conjugations of a specific verb;
     public void returnConjugation(String tense, OnListLoaded onListLoaded) {
-        synchronized (this) {
-            databaseAccess.callRetrofitEnglish(data -> {
-                //model class created for retrofit;
-                ModelClassEnglish verbData = data.get(index);
-                //Interface used to allow this data to be used outside of this asynchronous function;
-                onListLoaded.onListLoaded(returnVerbList(verbData, tense));
-            });
-        }
+        databaseAccess.callRetrofitEnglish(data -> {
+            //model class created for retrofit;
+            ModelClassEnglish verbData = data.get(index);
+            //Interface used to allow this data to be used outside of this asynchronous function;
+            onListLoaded.onListLoaded(returnVerbList(verbData, tense));
+        });
     }
 
     //returns a list of verbs conjugated, one item for each pronoun;

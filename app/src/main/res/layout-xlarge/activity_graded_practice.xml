@@ -22,7 +22,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/information_buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,11 +44,11 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="100dp"
             android:gravity="center"
             android:text="@string/customize"
             android:textColor="@color/text_gray"
-            android:textSize="56sp"
+            android:textSize="48sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,9 +57,9 @@
             android:id="@+id/coordinatorLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:gravity="center"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -79,7 +79,7 @@
                     android:paddingEnd="15dp"
                     android:textColor="@color/text_gray"
                     android:textColorHint="@color/text_gray"
-                    android:textSize="48sp"
+                    android:textSize="34sp"
                     tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,9 +90,9 @@
             android:id="@+id/coordinatorLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:gravity="center"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout2">
@@ -112,7 +112,7 @@
                     android:paddingEnd="15dp"
                     android:textColor="@color/text_gray"
                     android:textColorHint="@color/text_gray"
-                    android:textSize="48sp"
+                    android:textSize="34sp"
                     tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,9 +123,9 @@
             android:id="@+id/linearLayout5"
             android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/startButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout">
@@ -145,7 +145,7 @@
                 android:paddingBottom="10dp"
                 android:text="@string/fivemin"
                 android:textColor="@color/black"
-                android:textSize="48sp" />
+                android:textSize="34sp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/timeSwitch"
@@ -164,7 +164,7 @@
             android:id="@+id/startButton"
             android:layout_width="600dp"
             android:layout_height="100dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/dark_yellow"
             android:paddingStart="2dp"
             android:paddingTop="2dp"
@@ -172,7 +172,8 @@
             android:paddingBottom="2dp"
             android:text="@string/start"
             android:textColor="@color/text_gray"
-            android:textSize="44sp"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout5"

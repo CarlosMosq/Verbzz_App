@@ -2,8 +2,10 @@ package com.company.verbzz_app.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ import com.google.android.material.navigation.NavigationView;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 public class Conjugate_Activity extends AppCompatActivity {
 
@@ -36,6 +39,7 @@ public class Conjugate_Activity extends AppCompatActivity {
     private final BlankHoneyFragment blankHoneyFragment = new BlankHoneyFragment();
     ImageButton languageChange, conjugateButton;
     FloatingActionButton mainMenu;
+    ProgressBar progressBar;
     private EditText verbInput;
     private Fragment languageFragment;
     private String currentLanguage;
@@ -57,9 +61,11 @@ public class Conjugate_Activity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayoutConjugate);
         navigationView = findViewById(R.id.navigationConjugate);
         mainMenu = findViewById(R.id.floatingActionButton);
+        progressBar = findViewById(R.id.progressBarConjugate);
 
         recyclerView = findViewById(R.id.conjugateRecycler);
         adapter = new Language_Drawer_Adapter(languages, this);
+        progressBar.setVisibility(View.INVISIBLE);
 
         //Sets the language flag at the top of the fragment by accessing database and sets Fragment that will be used;
         setInitialFragment();
@@ -76,6 +82,7 @@ public class Conjugate_Activity extends AppCompatActivity {
 
         //collects verb provided by user and does call to retrofit with according language
         conjugateButton.setOnClickListener(v -> {
+            progressBar.setVisibility(View.VISIBLE);
             String verb = verbInput.getText().toString();
             verbInput.setText("");
             callToRetrofit(currentLanguage, verb);
@@ -137,34 +144,40 @@ public class Conjugate_Activity extends AppCompatActivity {
 
     //calls the API through Retrofit methods in DatabaseAccess class to collect language data;
     private void callToRetrofit(String currentLanguage, String verb) {
-        if(currentLanguage == null)
-            Toast.makeText(Conjugate_Activity.this, getText(R.string.languageNotSet), Toast.LENGTH_SHORT).show();
-        else if(currentLanguage.equals("English")) {
-            databaseAccess.callRetrofitEnglish(data -> {
-                int index = databaseAccess.returnEnglishVerbPosition(data, verb);
-                if(index >= 0) {
-                    EventBus.getDefault().postSticky(new VerbEventBus(verb, index));
-                    changeFragment(languageFragment);
-                }
-                else
-                    Toast.makeText(Conjugate_Activity.this
-                            , getText(R.string.verbNotFound)
-                            , Toast.LENGTH_SHORT).show();
-            });
-        }
-        else {
-            databaseAccess.callRetrofitFrench(data -> {
-                int index = databaseAccess.returnFrenchVerbPosition(data, verb);
-                if(index >= 0) {
-                    EventBus.getDefault().postSticky(new VerbEventBus(verb, index));
-                    changeFragment(languageFragment);
-                }
-                else
-                    Toast.makeText(Conjugate_Activity.this
-                            , getText(R.string.verbNotFound)
-                            , Toast.LENGTH_SHORT).show();
-            });
-        }
+        CompletableFuture.runAsync(() -> {
+            if(currentLanguage == null)
+                Toast.makeText(Conjugate_Activity.this, getText(R.string.languageNotSet), Toast.LENGTH_SHORT).show();
+            else if(currentLanguage.equals("English")) {
+                databaseAccess.callRetrofitEnglish(data -> {
+                    int index = databaseAccess.returnEnglishVerbPosition(data, verb);
+                    if(index >= 0) {
+                        EventBus.getDefault().postSticky(new VerbEventBus(verb, index));
+                        changeFragment(languageFragment);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                        Toast.makeText(Conjugate_Activity.this
+                                , getText(R.string.verbNotFound)
+                                , Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                });
+            }
+            else {
+                databaseAccess.callRetrofitFrench(data -> {
+                    int index = databaseAccess.returnFrenchVerbPosition(data, verb);
+                    if(index >= 0) {
+                        EventBus.getDefault().postSticky(new VerbEventBus(verb, index));
+                        changeFragment(languageFragment);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                        Toast.makeText(Conjugate_Activity.this
+                                , getText(R.string.verbNotFound)
+                                , Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                });
+            }
+        });
     }
 
     //opens drawer

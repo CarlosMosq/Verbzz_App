@@ -62,7 +62,7 @@
             android:maxLines="2"
             android:text="@string/conjugationPlaceholder"
             android:textColor="@color/text_gray"
-            android:textSize="48sp"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,7 +89,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/checkAnswer"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/dark_orange"
@@ -98,7 +98,7 @@
             android:text="@string/checkAnswer"
             android:textAllCaps="false"
             android:textColor="@color/icy_white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
             app:iconTint="@color/icy_white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +145,7 @@
             <ImageView
                 android:id="@+id/timerImage"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
@@ -162,12 +162,12 @@
                 android:gravity="center"
                 android:text="@string/timePlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/percentage"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:contentDescription="@string/percentageImg"
@@ -182,7 +182,7 @@
                 android:gravity="center"
                 android:text="@string/percentagePlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/fractionCount"
@@ -194,7 +194,17 @@
                 android:gravity="center"
                 android:text="@string/fractionPlaceholder"
                 android:textColor="@color/text_gray"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBarPractice"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

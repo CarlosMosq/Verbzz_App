@@ -43,94 +43,99 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:maxLines="2"
             android:text="@string/customize"
             android:textColor="@color/text_gray"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout2"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteLanguage"
-                    android:layout_width="320dp"
-                    android:layout_height="50dp"
-                    android:hint="@string/selectCount"
-                    android:inputType="none"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:textColor="@color/text_gray"
-                    android:textColorHint="@color/text_gray"
-                    android:textSize="24sp"
-                    tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content">
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coordinatorLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteView"
-                    android:layout_width="320dp"
-                    android:layout_height="50dp"
-                    android:hint="@string/selectTense"
-                    android:inputType="none"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:textColor="@color/text_gray"
-                    android:textColorHint="@color/text_gray"
-                    android:textSize="24sp"
-                    tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="@string/selectCount"
+                        android:inputType="none"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:textColor="@color/text_gray"
+                        android:textColorHint="@color/text_gray"
+                        android:textSize="20sp"
+                        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <LinearLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coordinatorLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="@string/selectTense"
+                        android:inputType="none"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:textColor="@color/text_gray"
+                        android:textColorHint="@color/text_gray"
+                        android:textSize="20sp"
+                        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linearLayout5"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/startButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
 
             <TextView
                 android:id="@+id/timeTextView"
@@ -147,7 +152,7 @@
                 android:paddingBottom="10dp"
                 android:text="@string/fivemin"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/timeSwitch"
@@ -160,12 +165,12 @@
                 android:textOff="@string/off"
                 android:textOn="@string/fivemin"
                 android:textSize="24sp" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button
             android:id="@+id/startButton"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/dark_yellow"
             android:paddingStart="2dp"
@@ -174,7 +179,7 @@
             android:paddingBottom="2dp"
             android:text="@string/start"
             android:textColor="@color/text_gray"
-            android:textSize="34sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

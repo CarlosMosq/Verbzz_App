@@ -14,8 +14,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ProgressBar
+            android:id="@+id/progressBarConjugate"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutConjugateLarge" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutConjugate"
+            android:id="@+id/linearLayoutConjugateLarge"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:background="@color/icy_white"
@@ -89,7 +99,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutConjugate">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutConjugateLarge">
 
         </LinearLayout>
 
