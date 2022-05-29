@@ -324,30 +324,30 @@ public class LanguagePractice extends AppCompatActivity {
             mInterstitialAd.show(LanguagePractice.this);
         }
         else {
-            Log.d("Ad-test", "Ad was null");
+            Log.d("Ad-real", "Ad was null");
         }
     }
 
     //Logic behind Ads set up to show after a lesson is finished
     public void loadInterstitialAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
-        InterstitialAd.load(this, getString(R.string.test_Interstitial_Ad_ID), adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this, getString(R.string.real_Interstitial_Ad_ID), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 super.onAdLoaded(interstitialAd);
-                Log.d("Ad-test", "Ad loaded successfully");
+                Log.d("Ad-real", "Ad loaded successfully");
                 mInterstitialAd = interstitialAd;
                 mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                     @Override
                     public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
                         super.onAdFailedToShowFullScreenContent(adError);
-                        Log.d("Ad-test", "Ad failed to show");
+                        Log.d("Ad-real", "Ad failed to show");
                     }
 
                     @Override
                     public void onAdShowedFullScreenContent() {
                         super.onAdShowedFullScreenContent();
-                        Log.d("Ad-test", "Ad shown");
+                        Log.d("Ad-real", "Ad shown");
                         mInterstitialAd = null;
                     }
 

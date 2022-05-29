@@ -71,7 +71,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailInput2"
                 android:layout_width="500dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:autofillHints="emailAddress"
                 android:gravity="center"
@@ -99,7 +99,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordInput2"
                 android:layout_width="500dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:autofillHints="password"
                 android:gravity="center"
                 android:inputType="textPassword"
@@ -111,7 +111,7 @@
         <Button
             android:id="@+id/logIn"
             android:layout_width="500dp"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:layout_marginTop="25dp"
             android:text="@string/log_in"
             android:textAllCaps="false"

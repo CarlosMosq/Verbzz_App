@@ -52,7 +52,7 @@
     <string name="forgotLinkSent">Link Successfully Sent. Please check your Inbox</string>
     <string name="errorLinkSent">Error, Please Try Again</string>
     <string name="accessGranted">Access Granted</string>
-    <string name="verifyEmail">Please verify e-mail before proceeding</string>
+    <string name="verifyEmail">Verification e-mail sent, please verify for security</string>
     <string name="verifySent">Please verify your account. E-mail verification sent successfully</string>
     <string name="incorrect">E-mail or Password Incorrect</string>
     <string name="accountCreated">Account Created Successfully</string>

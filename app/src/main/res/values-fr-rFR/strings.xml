@@ -59,7 +59,7 @@
     <string name="verbNotFound">"Le verbe choisi n'est pas trouvé. Veuillez vérifier l'orthographie ou essayez un autre verbe "</string>
     <string name="errorLinkSent">Erreur, veuillez réessayer</string>
     <string name="accessGranted">Accès Confirmé</string>
-    <string name="verifyEmail">Veuillez vérifier votre compte avant de commencer</string>
+    <string name="verifyEmail">Veuillez vérifier votre compte pour la sécurité</string>
     <string name="verifySent">Veuillez vérifier votre compte. Le message de vérification a été envoyé</string>
     <string name="forgotLinkSent">E-mail de vérification a été envoyé aves succès. Veuillez vérifier votre compte</string>
 </resources>

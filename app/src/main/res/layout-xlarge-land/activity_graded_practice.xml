@@ -57,9 +57,9 @@
             android:id="@+id/linearLayout16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -129,12 +129,12 @@
             android:id="@+id/linearLayout5"
             android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="50dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/startButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout16">
 
             <TextView
                 android:id="@+id/timeTextView"
@@ -170,7 +170,7 @@
             android:id="@+id/startButton"
             android:layout_width="600dp"
             android:layout_height="90dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="50dp"
             android:backgroundTint="@color/dark_yellow"
             android:paddingStart="2dp"
             android:paddingTop="2dp"
@@ -179,9 +179,9 @@
             android:text="@string/start"
             android:textColor="@color/text_gray"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
             tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

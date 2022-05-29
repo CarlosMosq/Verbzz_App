@@ -68,7 +68,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailInput"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:gravity="center"
                 android:inputType="textEmailAddress"
@@ -91,7 +91,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordInput"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:inputType="textPassword"
                 android:textSize="18sp"
@@ -103,7 +103,7 @@
             android:id="@+id/languageLayout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
@@ -133,14 +133,14 @@
             android:id="@+id/buttonCreate"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="30dp"
             android:text="@string/account"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/languageLayout"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <ProgressBar

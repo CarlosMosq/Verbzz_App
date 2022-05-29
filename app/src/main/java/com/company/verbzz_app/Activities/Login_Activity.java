@@ -40,7 +40,6 @@ public class Login_Activity extends AppCompatActivity {
 
         //Login method which collects e-mail and password from fields and passes to firebase method
         logIn.setOnClickListener(v -> {
-            logIn.setClickable(false);
             String email = emailField.getText().toString();
             String password = passwordField.getText().toString();
             signInWithFirebase(email, password);
@@ -62,13 +61,14 @@ public class Login_Activity extends AppCompatActivity {
     //Method that allows sign in with firebase, based on e-mail and password used previously
     public void signInWithFirebase(String email, String password) {
         progressBar.setVisibility(View.VISIBLE);
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+        auth
+                .signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
                 FirebaseUser user = auth.getCurrentUser();
                 assert user != null;
                 if(user.isEmailVerified()) {
                     Toast.makeText(Login_Activity.this, getText(R.string.accessGranted), Toast.LENGTH_SHORT).show();
-                    goToMain();
                 }
                 else{
                     user
@@ -78,6 +78,7 @@ public class Login_Activity extends AppCompatActivity {
                                             , getText(R.string.verifyEmail)
                                             , Toast.LENGTH_SHORT).show());
                 }
+                goToMain();
 
                 progressBar.setVisibility(View.INVISIBLE);
             }

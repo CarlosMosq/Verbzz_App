@@ -79,7 +79,6 @@ public class Sign_Up_Activity extends AppCompatActivity {
                                 Log.e("error", e.getMessage()));
 
                 saveToDatabase(currentLanguage);
-                Toast.makeText(Sign_Up_Activity.this, getText(R.string.accountCreated), Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Sign_Up_Activity.this, Login_Activity.class);
                 progressBar.setVisibility(View.INVISIBLE);
                 startActivity(i);
