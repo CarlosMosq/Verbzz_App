@@ -90,6 +90,14 @@ public class Sign_Up_Activity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(Sign_Up_Activity.this, Authentication_Page.class);
+        startActivity(i);
+        finish();
+    }
+
     // Saves the first language to be used into the Database
     public void saveToDatabase(String language) {
         DatabaseAccess databaseAccess = new DatabaseAccess();

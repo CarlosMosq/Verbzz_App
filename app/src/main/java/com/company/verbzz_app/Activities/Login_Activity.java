@@ -49,12 +49,14 @@ public class Login_Activity extends AppCompatActivity {
         noAccount.setOnClickListener(v -> {
             Intent i = new Intent(Login_Activity.this, Sign_Up_Activity.class);
             startActivity(i);
+            finish();
         });
 
         //Directs user to activity for resetting their password
         forgotPassword.setOnClickListener(v -> {
             Intent i = new Intent(Login_Activity.this, Forgot_Password.class);
             startActivity(i);
+            finish();
         });
     }
 
@@ -91,6 +93,14 @@ public class Login_Activity extends AppCompatActivity {
     //directs user to main activity after login is finished
     public void goToMain() {
         Intent i = new Intent(Login_Activity.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(Login_Activity.this, Authentication_Page.class);
         startActivity(i);
         finish();
     }
